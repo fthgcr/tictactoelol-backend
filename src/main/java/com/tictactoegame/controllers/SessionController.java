@@ -43,7 +43,7 @@ public class SessionController {
         this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200", "https://fthgcr.github.io"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
     @PostMapping ("/createOrJoinGame")
     public ResponseEntity<GameSession> createOrJoinGame(@RequestBody SessionRequest sessionRequest) throws IllegalAccessException {
         return new ResponseEntity<>(sessionService.createOrJoinGame(sessionRequest), HttpStatus.OK);
@@ -73,19 +73,19 @@ public class SessionController {
     } */
 
     //Champions
-    @CrossOrigin(origins = {"http://localhost:4200", "https://fthgcr.github.io"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
     @GetMapping ("/getAll")
     public ResponseEntity<List<Champions>> getAll(){
         return new ResponseEntity<>(championsService.getAllChampions(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200", "https://fthgcr.github.io"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
     @GetMapping ("/getChampionByName")
     public ResponseEntity<Champions> getChampionByName(){
         return new ResponseEntity<>(championsService.getChampionByName("Quinn").get(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200", "https://fthgcr.github.io"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
     @GetMapping ("/getRules")
     public ResponseEntity<Object> getRules() throws IllegalAccessException {
         return new ResponseEntity<>(sessionService.checkRules("Ability Resource : Health,Difficulty : 1,Gender : Female,Region : The Freljord,Role : Marksman,Release Date : 2022"), HttpStatus.OK);
