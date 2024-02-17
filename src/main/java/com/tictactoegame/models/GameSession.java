@@ -46,6 +46,9 @@ public class GameSession {
     @Column(name = "game_rule")
     private String gameRule;
 
+    @Column(name = "game_status")
+    private int gameStatus;
+
     public String[] getPlayArea() {
         if (playAreaArray == null && playArea != null) {
             playAreaArray = playArea.split(",", -1);

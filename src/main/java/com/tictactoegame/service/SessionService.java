@@ -35,6 +35,7 @@ public class SessionService {
             gameSession.setGameId(sessionRequest.getGameId());
             gameSession.setDate(new Date());
             gameSession.setTurn(0);
+            gameSession.setGameStatus(Consts.GAME_CONTINUES);
             gameSession.setPlayArea(Utils.fillEmptyGameArea());
         } else if (gameSession.getSecondPlayer() == null && !gameSession.getFirstPlayer().equalsIgnoreCase(sessionRequest.getPlayerIp())){
             gameSession.setGameRule(createRules().toString());
