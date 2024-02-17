@@ -37,4 +37,6 @@ public class GameAreaRequest {
 
     private String verticalRule;
 
+    private int gameStatus;
+
 }

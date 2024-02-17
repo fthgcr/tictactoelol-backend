@@ -63,8 +63,4 @@ public class Consts {
             "Gender : Male",
             "Gender : Female"};
 
-    public static final int GAME_CONTINUES = -1;
-    public static final int GAME_WON_FIRST_PLAYER = 0;
-    public static final int GAME_WON_SECOND_PLAYER = 1;
-    public static final int GAME_DRAW = 2;
 }

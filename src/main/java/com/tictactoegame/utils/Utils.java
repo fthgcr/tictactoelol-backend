@@ -23,6 +23,7 @@ public class Utils {
                 .date(gameAreaRequest.getDate())
                 .turn(gameAreaRequest.getTurn())
                 .secondPlayer(gameAreaRequest.getSecondPlayer())
+                .gameStatus(gameAreaRequest.getGameStatus())
                 .build();
     }
 
