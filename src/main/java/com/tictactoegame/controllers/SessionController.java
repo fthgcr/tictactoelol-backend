@@ -33,14 +33,10 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SessionController {
 
     private final SessionService sessionService;
-    private final ChampionsService championsService;
-    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @Autowired
-    public SessionController(SessionService sessionService, ChampionsService championsService, SimpMessagingTemplate simpMessagingTemplate){
+    public SessionController(SessionService sessionService){
         this.sessionService = sessionService;
-        this.championsService = championsService;
-        this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
@@ -61,37 +57,10 @@ public class SessionController {
         }
     }
 
-    /*@CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping ("/setPlayArea")
-    public ResponseEntity<GameSession> setPlayArea(@RequestBody GameAreaRequest gameAreaRequest){
-
-        String gameId = gameAreaRequest.getGameId();
-        String dummyObject = "Dummy message";
-        simpMessagingTemplate.convertAndSend("/topic/" + gameId, dummyObject);
-        return new ResponseEntity<>(null, HttpStatus.OK);
-        //return new ResponseEntity<>(sessionService.setPlayArea(gameAreaRequest), HttpStatus.OK);
-    } */
-
-    //Champions
     @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
-    @GetMapping ("/getAll")
-    public ResponseEntity<List<Champions>> getAll(){
-        return new ResponseEntity<>(championsService.getAllChampions(), HttpStatus.OK);
+    @GetMapping ("/replaySession/{gameId}")
+    public ResponseEntity<Boolean> replaySession(@PathVariable String gameId)  {
+        return new ResponseEntity<>(sessionService.replaySession(gameId), HttpStatus.OK);
     }
-
-    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
-    @GetMapping ("/getChampionByName")
-    public ResponseEntity<Champions> getChampionByName(){
-        return new ResponseEntity<>(championsService.getChampionByName("Quinn").get(), HttpStatus.OK);
-    }
-
-    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
-    @GetMapping ("/getRules")
-    public ResponseEntity<Object> getRules() throws IllegalAccessException {
-        return new ResponseEntity<>(sessionService.checkRules("Ability Resource : Health,Difficulty : 1,Gender : Female,Region : The Freljord,Role : Marksman,Release Date : 2022"), HttpStatus.OK);
-    }
-
-
-
 
 }

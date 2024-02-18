@@ -52,8 +52,9 @@ public class SessionService {
     public GameSession setPlayArea(GameAreaRequest gameAreaRequest) {
         //If the rules match the champion (gameAreaRequest.getValue())
         GameSession gameSession = Utils.gameAreaRequestToGameSession(gameAreaRequest);
-        if(isRuleCorrect(gameAreaRequest.getHorizontalRule(),championsService.getChampionByName(gameAreaRequest.getValue()).get()) &&
-                isRuleCorrect(gameAreaRequest.getVerticalRule(),championsService.getChampionByName(gameAreaRequest.getValue()).get())){
+        gameAreaRequest.setValue(gameAreaRequest.getValue().replace("'", "''"));
+        if(isRuleCorrect(gameAreaRequest.getHorizontalRule(),championsService.getChampionByName(gameAreaRequest.getValue())) &&
+                isRuleCorrect(gameAreaRequest.getVerticalRule(),championsService.getChampionByName(gameAreaRequest.getValue()))){
 
             gameSession.getPlayArea()[gameAreaRequest.getIndex()] = gameAreaRequest.getValue();
             gameSession.setPlayArea(gameSession.getPlayArea());
@@ -76,8 +77,13 @@ public class SessionService {
         }
         fieldList.clear();
         rules.deleteCharAt(rules.length() - 1);
-        if(!checkRules(rules.toString()))
-            return createRules();
+        try {
+            if(!checkRules(rules.toString()))
+                return createRules();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
 
         return rules;
     }
@@ -154,6 +160,7 @@ public class SessionService {
                 for (Champions champion : allChampions) {
                     if(isRuleCorrect(splitArray[index], champion) && isRuleCorrect(splitArray[index2], champion)){
                         found = true;
+                        allChampions.removeIf(obj -> obj.getPid() == champion.getPid());
                         break;
                     }
                 }
@@ -162,6 +169,14 @@ public class SessionService {
                     return false;
                 }
             }
+        }
+        return true;
+    }
+
+    public Boolean replaySession (String gameId){
+        GameSession gameSession = sessionRepository.findByGameId(gameId);
+        if(gameSession != null && gameSession.getSecondPlayer() != null){
+            sessionRepository.deleteById(gameSession.getUid());
         }
         return true;
     }
