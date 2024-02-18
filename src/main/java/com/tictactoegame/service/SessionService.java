@@ -154,6 +154,7 @@ public class SessionService {
     public boolean checkRules(String rules){
         String[] splitArray = rules.split(",");
         List<Champions> allChampions = championsService.getAllChampions();
+        Collections.shuffle(allChampions);
         for (int index : List.of(0,1,2)) {
             for (int index2 : List.of(3,4,5)){
                 boolean found = false;
