@@ -46,8 +46,8 @@ public class Consts {
             "Release Date : 2020",
             "Release Date : 2021",
             "Release Date : 2022",
-            "Release Date : 2023",
-            "Release Date : 2024"};
+            "Release Date : 2023"};
+            //"Release Date : 2024"};
 
     public static final String[] abilityResource = {
             "Ability Resource : None",

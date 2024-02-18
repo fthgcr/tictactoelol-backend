@@ -64,6 +64,14 @@ public class SessionService {
     }
 
     private StringBuilder createRules() throws IllegalAccessException {
+        while(true){
+            StringBuilder rules = createRule();
+            if(checkRules(rules.toString()))
+                return rules;
+        }
+    }
+
+    private StringBuilder createRule() throws IllegalAccessException {
         StringBuilder rules = new StringBuilder();
         List<Field> fieldList = Arrays.asList(Consts.class.getDeclaredFields());
         for(int index = 0; index <6 ; index++){
@@ -77,14 +85,6 @@ public class SessionService {
         }
         fieldList.clear();
         rules.deleteCharAt(rules.length() - 1);
-        try {
-            if(!checkRules(rules.toString()))
-                return createRules();
-        } catch (Exception e){
-            System.out.println(e);
-        }
-
-
         return rules;
     }
 
