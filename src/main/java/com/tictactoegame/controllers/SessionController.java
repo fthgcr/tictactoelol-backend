@@ -45,6 +45,12 @@ public class SessionController {
         return new ResponseEntity<>(sessionService.createOrJoinGame(sessionRequest), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
+    @PostMapping ("/healthCheckSession")
+    public ResponseEntity<GameSession> healthCheckSession(@RequestBody SessionRequest sessionRequest) throws IllegalAccessException {
+        return new ResponseEntity<>(sessionService.healthCheckSession(sessionRequest.getGameId()), HttpStatus.OK);
+    }
+
     @MessageMapping("/chat/{gameId}")
     @SendTo("/topic/{gameId}")
     public GameSession sendMessageToGroup(@DestinationVariable String gameId, GameAreaRequest gameAreaRequest) {
@@ -61,6 +67,23 @@ public class SessionController {
     @GetMapping ("/replaySession/{gameId}")
     public ResponseEntity<Boolean> replaySession(@PathVariable String gameId)  {
         return new ResponseEntity<>(sessionService.replaySession(gameId), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
+    @GetMapping ("/findMatch/{username}")
+    public ResponseEntity<GameSession> findMatch(@PathVariable String username) throws IllegalAccessException {
+        return new ResponseEntity<>(sessionService.findEmptySession(username), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = {"http://localhost:4200", "https://tictactoelol.onrender.com/"})
+    @DeleteMapping ("/quitSession/{id}")
+    public ResponseEntity<Boolean> quitSession(@PathVariable Integer id) throws IllegalAccessException {
+        try {
+            sessionService.quitSession(id);
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(false, HttpStatus.OK);
+        }
     }
 
 }

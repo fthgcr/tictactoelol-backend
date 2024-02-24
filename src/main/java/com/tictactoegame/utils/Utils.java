@@ -3,8 +3,15 @@ package com.tictactoegame.utils;
 import com.tictactoegame.models.GameSession;
 import com.tictactoegame.models.requests.GameAreaRequest;
 
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 public class Utils {
 
+    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private static final Random random = new SecureRandom();
     public static final String[] fillEmptyGameArea(){
         String[] empty = {"0", "0", "0", "0", "0", "0", "0", "0", "0"};
         return empty;
@@ -42,7 +49,20 @@ public class Utils {
         } else {
             return "Error";
         }
-
-
     }
+
+    public static final String generateGameId(){
+        StringBuilder result = new StringBuilder();
+        result.append("FI");
+        for(int index =0; index < 6; index++){
+            int randomIndex = random.nextInt(CHARACTERS.length());
+            result.append(CHARACTERS.charAt(randomIndex));
+        }
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMHHmmss");
+        result.append(now.format(formatter));
+
+        return result.toString();
+    }
+
 }

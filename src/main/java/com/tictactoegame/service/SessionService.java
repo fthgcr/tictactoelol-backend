@@ -7,12 +7,17 @@ import com.tictactoegame.models.requests.SessionRequest;
 import com.tictactoegame.repositories.SessionRepository;
 import com.tictactoegame.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.RetryException;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.sql.SQLException;
 import java.util.*;
 
 import com.tictactoegame.utils.Consts;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SessionService {
@@ -36,6 +41,7 @@ public class SessionService {
             gameSession.setDate(new Date());
             gameSession.setTurn(0);
             gameSession.setGameStatus(-1);
+            gameSession.setMatchmaking(false);
             gameSession.setPlayArea(Utils.fillEmptyGameArea());
         } else if (gameSession.getSecondPlayer() == null && !gameSession.getFirstPlayer().equalsIgnoreCase(sessionRequest.getPlayerIp())){
             gameSession.setGameRule(createRules().toString());
@@ -185,6 +191,33 @@ public class SessionService {
         }
         return true;
     }
+
+    @Transactional
+    //@Retryable(value = {NullPointerException.class},maxAttempts = 10,backoff = @Backoff(1000))
+    public GameSession findEmptySession(String username) throws IllegalAccessException {
+        Optional<GameSession> gameSession = sessionRepository.findEmptySession(username);
+        if(gameSession.isEmpty()){
+            GameSession newSession = new GameSession();
+            newSession.setFirstPlayer(username);
+            newSession.setGameId(Utils.generateGameId());
+            newSession.setDate(new Date());
+            newSession.setTurn(0);
+            newSession.setGameStatus(-1);
+            newSession.setPlayArea(Utils.fillEmptyGameArea());
+            newSession.setSecondPlayer(null);
+            newSession.setMatchmaking(true);
+            return sessionRepository.save(newSession);
+        } else {
+            gameSession.get().setGameRule(createRules().toString());
+            gameSession.get().setSecondPlayer(username);
+            return gameSession.get();
+        }
+    }
+
+    public void quitSession(Integer id){
+        sessionRepository.deleteById(id);
+    }
+
 
 
 }
