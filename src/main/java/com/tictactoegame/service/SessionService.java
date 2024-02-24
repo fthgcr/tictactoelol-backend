@@ -161,16 +161,16 @@ public class SessionService {
         String[] splitArray = rules.split(",");
         List<Champions> allChampions = championsService.getAllChampions();
         Collections.shuffle(allChampions);
-        Set<Champions> championsSet = new HashSet<>();
+        Set<Integer> championsSet = new HashSet<>();
         for (int index : List.of(0,1,2)) {
             for (int index2 : List.of(3,4,5)){
                 boolean found = false;
                 for (Champions champion : allChampions) {
-                    if(championsSet.contains(champion))
+                    if(championsSet.contains(champion.getPid()))
                         continue;
                     if(isRuleCorrect(splitArray[index], champion) && isRuleCorrect(splitArray[index2], champion)){
                         found = true;
-                        championsSet.add(champion);
+                        championsSet.add(champion.getPid());
                         //allChampions.removeIf(obj -> obj.getPid() == champion.getPid());
                         break;
                     }
