@@ -1,9 +1,5 @@
 package com.tictactoegame.models.requests;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +12,10 @@ import java.util.Date;
 public class GameAreaRequest {
 
     private int uid;
+
+    // Identity of the sender (persistent player id / matchmaking username).
+    // Used server-side to validate that the move belongs to the player whose turn it is.
+    private String playerId;
 
     private String firstPlayer;
 

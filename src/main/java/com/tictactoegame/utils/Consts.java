@@ -1,5 +1,7 @@
 package com.tictactoegame.utils;
 
+import java.util.List;
+
 public class Consts {
 
     public static final String[] regions = {
@@ -62,5 +64,16 @@ public class Consts {
     public static final String[] gender = {
             "Gender : Male",
             "Gender : Female"};
+
+    // All rule categories in one place; used by the tic-tac-toe rule generator
+    // and the Connections puzzle generator.
+    public static final List<String[]> RULE_CATEGORIES = List.of(
+            regions,
+            difficulties,
+            roles,
+            releaseDates,
+            abilityResource,
+            meleeRanged,
+            gender);
 
 }

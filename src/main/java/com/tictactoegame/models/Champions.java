@@ -1,43 +1,38 @@
 package com.tictactoegame.models;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name="champions")
+/**
+ * Static reference data - loaded once from resources/data/champions.json
+ * by {@link com.tictactoegame.repositories.ChampionsRepository}.
+ * Champions never change at runtime, so no database is involved.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 public class Champions {
-    @Id
-    @Column(name = "pid")
+
     private int pid;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "role")
+    /** One or more roles, comma separated (e.g. "Fighter,Tank"). */
     private String role;
 
-    @Column(name = "difficulty")
     private String difficulty;
 
-    @Column(name = "region")
     private String region;
 
-    @Column(name = "release_date")
     private String releaseDate;
 
-    @Column(name = "ability_resource")
     private String abilityResource;
 
-    @Column(name = "melee_ranged")
+    /** "Melee", "Ranged" or "Melee,Ranged". */
     private String meleeRanged;
 
-    @Column(name = "gender")
     private String gender;
 }

@@ -1,56 +1,71 @@
 package com.tictactoegame.models;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
-@Entity
-@Table(name="game_session")
+/**
+ * Live game state. Held in memory by
+ * {@link com.tictactoegame.repositories.SessionRepository} - there is no database,
+ * so sessions do not survive a restart. That is intentional: a match is short lived
+ * and abandoned sessions are swept away by the TTL cleanup job.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 public class GameSession {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int uid;
 
-    @Column(name = "first_player")
     private String firstPlayer;
 
-    @Column(name = "second_player")
     private String secondPlayer;
 
-    @Column(name = "game_id")
     private String gameId;
 
-    @Column(name = "turn")
     private Integer turn;
 
-    @Column(name = "start_date")
     private Date date;
 
-    @Column(name = "play_area")
     private String playArea;
 
-    @Transient
     private String[] playAreaArray;
 
-    @Column(name = "game_rule")
     private String gameRule;
 
-    @Column(name = "game_status")
     private int gameStatus;
 
-    @Column(name = "is_matchmaking")
     private boolean isMatchmaking;
+
+    // Who placed each of the 9 cells: "-1" = empty, "0" = first player, "1" = second player.
+    // Kept server-side so win detection cannot be forged by a client.
+    private String cellOwners;
+
+    private String[] cellOwnersArray;
+
+    /**
+     * Epoch millis of the last write to this session. Only used by the cleanup job,
+     * so it is kept out of the JSON sent to the client.
+     */
+    @JsonIgnore
+    private long lastActivity;
+
+    public String[] getCellOwners() {
+        if (cellOwnersArray == null && cellOwners != null) {
+            cellOwnersArray = cellOwners.split(",", -1);
+        }
+        return cellOwnersArray;
+    }
+
+    public void setCellOwners(String[] cellOwners) {
+        this.cellOwnersArray = cellOwners;
+        this.cellOwners = cellOwners == null ? null : String.join(",", cellOwners);
+    }
 
     public String[] getPlayArea() {
         if (playAreaArray == null && playArea != null) {
@@ -77,6 +92,12 @@ public class GameSession {
             return playArea.split(",", -1);
         }
         return null;
+    }
+
+    /** True once the match is over (win or draw). */
+    @JsonIgnore
+    public boolean isFinished() {
+        return gameStatus != -1;
     }
 
 }

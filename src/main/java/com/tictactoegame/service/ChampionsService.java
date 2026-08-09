@@ -25,10 +25,13 @@ public class ChampionsService {
 
     @Cacheable(value = "championByName", key = "#name")
     public Champions getChampionByName(String name) {
+        if (name == null) {
+            return null;
+        }
         String[] parts = name.split("\\'");
-        if(parts.length > 1){
-            return repository.findByNameSpecialCharacters(parts[0], parts[2]);
-        } else
-            return repository.findByName(name).get();
+        if (parts.length > 2) {
+            return repository.findByNameSpecialCharacters(parts[0], parts[parts.length - 1]);
+        }
+        return repository.findByName(name).orElse(null);
     }
 }

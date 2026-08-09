@@ -7,17 +7,11 @@ import com.tictactoegame.models.requests.SessionRequest;
 import com.tictactoegame.repositories.SessionRepository;
 import com.tictactoegame.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.retry.RetryException;
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
-import java.sql.SQLException;
 import java.util.*;
 
 import com.tictactoegame.utils.Consts;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SessionService {
@@ -32,134 +26,179 @@ public class SessionService {
         this.championsService = championsService;
     }
 
-    public GameSession createOrJoinGame(SessionRequest sessionRequest) throws IllegalAccessException {
-        GameSession gameSession = sessionRepository.findByGameId(sessionRequest.getGameId());
-        if(gameSession == null){
-            gameSession = new GameSession();
-            gameSession.setFirstPlayer(sessionRequest.getPlayerIp());
-            gameSession.setGameId(sessionRequest.getGameId());
-            gameSession.setDate(new Date());
-            gameSession.setTurn(0);
-            gameSession.setGameStatus(-1);
-            gameSession.setMatchmaking(false);
-            gameSession.setPlayArea(Utils.fillEmptyGameArea());
-        } else if (gameSession.getSecondPlayer() == null && !gameSession.getFirstPlayer().equalsIgnoreCase(sessionRequest.getPlayerIp())){
-            gameSession.setGameRule(createRules().toString());
-            gameSession.setSecondPlayer(sessionRequest.getPlayerIp());
-        }
-
-        return sessionRepository.save(gameSession);
+    /**
+     * Create the session for a shared gameId, or take the free seat in it.
+     * The repository performs the whole check-and-claim atomically, which replaces
+     * the database transaction that used to guard this.
+     */
+    public GameSession createOrJoinGame(SessionRequest sessionRequest) {
+        return sessionRepository.joinOrCreateGame(
+                sessionRequest.getGameId(),
+                sessionRequest.getPlayerIp(),
+                () -> newSession(sessionRequest.getPlayerIp(), sessionRequest.getGameId(), false),
+                this::createRules);
     }
 
     public GameSession healthCheckSession(String gameId){
         return sessionRepository.findByGameId(gameId);
     }
 
+    /**
+     * Server-authoritative move handling. The session state (board, turn, rules, winner)
+     * always comes from the server-side store; the client only supplies "who", "where" and
+     * "which champion". Invalid or out-of-turn requests simply get the current server
+     * state broadcast back, so a tampered client cannot corrupt the game.
+     *
+     * The session object is locked for the duration of the move: without a database
+     * transaction this is what keeps two simultaneous moves from interleaving.
+     */
     public GameSession setPlayArea(GameAreaRequest gameAreaRequest) {
-        //If the rules match the champion (gameAreaRequest.getValue())
-        GameSession gameSession = Utils.gameAreaRequestToGameSession(gameAreaRequest);
-        gameAreaRequest.setValue(gameAreaRequest.getValue().replace("'", "''"));
-        if(isRuleCorrect(gameAreaRequest.getHorizontalRule(),championsService.getChampionByName(gameAreaRequest.getValue())) &&
-                isRuleCorrect(gameAreaRequest.getVerticalRule(),championsService.getChampionByName(gameAreaRequest.getValue()))){
-
-            gameSession.getPlayArea()[gameAreaRequest.getIndex()] = gameAreaRequest.getValue();
-            gameSession.setPlayArea(gameSession.getPlayArea());
+        GameSession gameSession = sessionRepository.findByGameId(gameAreaRequest.getGameId());
+        if (gameSession == null) {
+            return null;
         }
-        gameSession.setTurn(gameAreaRequest.getTurn() == 0 ? 1 : 0);
-        return sessionRepository.save(gameSession);
+
+        synchronized (gameSession) {
+            int player = playerIndexOf(gameSession, gameAreaRequest.getPlayerId());
+            Integer index = gameAreaRequest.getIndex();
+            boolean gameActive = gameSession.getGameStatus() == -1 && gameSession.getSecondPlayer() != null;
+            boolean validMoveShape = index != null && index >= 0 && index < 9
+                    && gameAreaRequest.getValue() != null && !gameAreaRequest.getValue().isBlank();
+
+            // Not this player's turn, unknown player, finished game or malformed request:
+            // re-broadcast the authoritative state untouched.
+            if (!gameActive || !validMoveShape || player == -1 || !Objects.equals(gameSession.getTurn(), player)) {
+                return gameSession;
+            }
+
+            String champion = gameAreaRequest.getValue().replace("'", "''");
+            String[] playArea = gameSession.getPlayArea();
+
+            // Occupied cell or champion already used elsewhere on the board:
+            // reject without consuming the player's turn (protects against double-click races).
+            if (!"0".equals(playArea[index]) || Arrays.asList(playArea).contains(champion)) {
+                return gameSession;
+            }
+
+            // Rules come from the stored rule set, never from the request.
+            if (gameSession.getGameRule() == null || gameSession.getGameRule().split(",").length < 6) {
+                return gameSession;
+            }
+            String[] rules = gameSession.getGameRule().split(",");
+            Champions champ = championsService.getChampionByName(champion);
+            if (isRuleCorrect(Utils.deriveHorizontalRule(rules, index), champ)
+                    && isRuleCorrect(Utils.deriveVerticalRule(rules, index), champ)) {
+                playArea[index] = champion;
+                gameSession.setPlayArea(playArea);
+
+                String[] cellOwners = gameSession.getCellOwners();
+                if (cellOwners == null || cellOwners.length < 9) {
+                    cellOwners = Utils.fillEmptyCellOwners();
+                }
+                cellOwners[index] = String.valueOf(player);
+                gameSession.setCellOwners(cellOwners);
+
+                // Server-side win / draw detection.
+                int winner = Utils.findWinner(cellOwners);
+                if (winner != -1) {
+                    gameSession.setGameStatus(winner);
+                } else if (Utils.isBoardFull(playArea)) {
+                    gameSession.setGameStatus(2); // draw
+                }
+            }
+            // A wrong answer still costs the turn - that is part of the game design.
+            gameSession.setTurn(player == 0 ? 1 : 0);
+            return sessionRepository.save(gameSession);
+        }
     }
 
-    private StringBuilder createRules() throws IllegalAccessException {
-        while(true){
-            StringBuilder rules = createRule();
-            if(checkRules(rules.toString()))
+    /**
+     * Skips the current turn on timeout. Only the player whose turn is running out
+     * may skip it, so an opponent cannot steal turns.
+     */
+    public GameSession skipTurn(String gameId, String playerId) {
+        GameSession gameSession = sessionRepository.findByGameId(gameId);
+        if (gameSession == null) {
+            return null;
+        }
+        synchronized (gameSession) {
+            int player = playerIndexOf(gameSession, playerId);
+            boolean gameActive = gameSession.getGameStatus() == -1 && gameSession.getSecondPlayer() != null;
+            if (!gameActive || player == -1 || !Objects.equals(gameSession.getTurn(), player)) {
+                return gameSession;
+            }
+            gameSession.setTurn(player == 0 ? 1 : 0);
+            return sessionRepository.save(gameSession);
+        }
+    }
+
+    private int playerIndexOf(GameSession gameSession, String playerId) {
+        if (playerId == null || playerId.isBlank()) {
+            return -1;
+        }
+        if (playerId.equalsIgnoreCase(gameSession.getFirstPlayer())) {
+            return 0;
+        }
+        if (playerId.equalsIgnoreCase(gameSession.getSecondPlayer())) {
+            return 1;
+        }
+        return -1;
+    }
+
+    private static final int MAX_RULE_GENERATION_ATTEMPTS = 500;
+
+    private static final Random RANDOM = new Random();
+
+    /** Fresh, empty session waiting for an opponent. */
+    private GameSession newSession(String firstPlayer, String gameId, boolean matchmaking) {
+        GameSession gameSession = new GameSession();
+        gameSession.setFirstPlayer(firstPlayer);
+        gameSession.setSecondPlayer(null);
+        gameSession.setGameId(gameId);
+        gameSession.setDate(new Date());
+        gameSession.setTurn(0);
+        gameSession.setGameStatus(-1);
+        gameSession.setMatchmaking(matchmaking);
+        gameSession.setPlayArea(Utils.fillEmptyGameArea());
+        gameSession.setCellOwners(Utils.fillEmptyCellOwners());
+        return gameSession;
+    }
+
+    private String createRules() {
+        for (int attempt = 0; attempt < MAX_RULE_GENERATION_ATTEMPTS; attempt++) {
+            String rules = createRule();
+            if (checkRules(rules)) {
                 return rules;
-        }
-    }
-
-    private StringBuilder createRule() throws IllegalAccessException {
-        StringBuilder rules = new StringBuilder();
-        List<Field> fieldList = Arrays.asList(Consts.class.getDeclaredFields());
-        for(int index = 0; index <6 ; index++){
-            Map<Field, List<Field>> fieldMap = getRandomField(fieldList);
-            for (Map.Entry<Field, List<Field>> entry : fieldMap.entrySet()) {
-                Field keyField = entry.getKey();
-                fieldList = entry.getValue();
-                keyField.setAccessible(true);
-                rules.append(getRandomElementFromArray((String[]) keyField.get(null))).append(",");
             }
         }
-        fieldList.clear();
-        rules.deleteCharAt(rules.length() - 1);
-        return rules;
+        throw new IllegalStateException(
+                "Could not generate a solvable rule set after " + MAX_RULE_GENERATION_ATTEMPTS + " attempts");
     }
 
-    private Map<Field, List<Field>> getRandomField(List<Field> fields) {
-        Map<Field, List<Field>> fieldMap = new HashMap<>();
-
-        List<Field> mutableFields = new ArrayList<>(fields);
-
-        Random random = new Random();
-        int randomIndex = random.nextInt(mutableFields.size());
-
-        Field randomField = mutableFields.get(randomIndex);
-        mutableFields.remove(randomIndex);
-
-        fieldMap.put(randomField, mutableFields);
-        return fieldMap;
-    }
-
-    private String getRandomElementFromArray(String[] keyArray){
-        Random random = new Random();
-        int randomIndex = random.nextInt(keyArray.length);
-        return keyArray[randomIndex];
+    // Picks 6 distinct categories (out of 7) in random order, then one random rule from each.
+    private String createRule() {
+        List<String[]> categories = new ArrayList<>(Consts.RULE_CATEGORIES);
+        Collections.shuffle(categories, RANDOM);
+        StringBuilder rules = new StringBuilder();
+        for (int index = 0; index < 6; index++) {
+            String[] category = categories.get(index);
+            if (index > 0) {
+                rules.append(",");
+            }
+            rules.append(category[RANDOM.nextInt(category.length)]);
+        }
+        return rules.toString();
     }
 
     public boolean isRuleCorrect(String rule, Champions champions){
-        String ruleName = Utils.getPureRuleString(rule);
-        boolean isItCorrect = false;
-        switch (rule.substring(0, rule.indexOf(" : ")).trim()) {
-            case "Region":
-                isItCorrect = ruleName.equalsIgnoreCase(champions.getRegion());
-                break;
-            case "Difficulty":
-                isItCorrect = ruleName.equalsIgnoreCase(champions.getDifficulty());
-                break;
-            case "Role":
-                String[] roles = Utils.splitString(champions.getRole());
-                for (String role : roles) {
-                    if (role.equalsIgnoreCase(ruleName)) {
-                        isItCorrect = true;
-                        break;
-                    }
-                }
-                break;
-            case "Release Date":
-                isItCorrect = ruleName.equalsIgnoreCase(champions.getReleaseDate());
-                break;
-            case "Ability Resource":
-                isItCorrect = ruleName.equalsIgnoreCase(champions.getAbilityResource());
-                break;
-            case "Melee/Ranged":
-                String[] meleeRanged = Utils.splitString(champions.getMeleeRanged());
-                for (String mr : meleeRanged) {
-                    if (mr.equalsIgnoreCase(ruleName)) {
-                        isItCorrect = true;
-                        break;
-                    }
-                }
-                break;
-            case "Gender":
-                isItCorrect = ruleName.equalsIgnoreCase(champions.getGender());
-                break;
-        }
-
-        return isItCorrect;
+        return Utils.isRuleCorrect(rule, champions);
     }
 
     public boolean checkRules(String rules){
         String[] splitArray = rules.split(",");
-        List<Champions> allChampions = championsService.getAllChampions();
+        // Defensive copy: getAllChampions() is @Cacheable and returns a shared, immutable
+        // list, shuffling it in place would mutate the cache for every caller.
+        List<Champions> allChampions = new ArrayList<>(championsService.getAllChampions());
         Collections.shuffle(allChampions);
         Set<Integer> championsSet = new HashSet<>();
         for (int index : List.of(0,1,2)) {
@@ -171,12 +210,10 @@ public class SessionService {
                     if(isRuleCorrect(splitArray[index], champion) && isRuleCorrect(splitArray[index2], champion)){
                         found = true;
                         championsSet.add(champion.getPid());
-                        //allChampions.removeIf(obj -> obj.getPid() == champion.getPid());
                         break;
                     }
                 }
                 if(!found){
-                    System.out.println(splitArray[index] + " - " + splitArray[index2]);
                     return false;
                 }
             }
@@ -187,37 +224,26 @@ public class SessionService {
     public Boolean replaySession (String gameId){
         GameSession gameSession = sessionRepository.findByGameId(gameId);
         if(gameSession != null && gameSession.getSecondPlayer() != null){
-            sessionRepository.deleteById(gameSession.getUid());
+            sessionRepository.deleteByGameId(gameId);
         }
         return true;
     }
 
-    @Transactional
-    //@Retryable(value = {NullPointerException.class},maxAttempts = 10,backoff = @Backoff(1000))
-    public GameSession findEmptySession(String username) throws IllegalAccessException {
-        Optional<GameSession> gameSession = sessionRepository.findEmptySession(username);
-        if(gameSession.isEmpty()){
-            GameSession newSession = new GameSession();
-            newSession.setFirstPlayer(username);
-            newSession.setGameId(Utils.generateGameId());
-            newSession.setDate(new Date());
-            newSession.setTurn(0);
-            newSession.setGameStatus(-1);
-            newSession.setPlayArea(Utils.fillEmptyGameArea());
-            newSession.setSecondPlayer(null);
-            newSession.setMatchmaking(true);
-            return sessionRepository.save(newSession);
-        } else {
-            gameSession.get().setGameRule(createRules().toString());
-            gameSession.get().setSecondPlayer(username);
-            return gameSession.get();
-        }
+    /**
+     * Matchmaking queue: take the seat in the longest waiting session, or open a new one.
+     * Claiming and rule generation happen atomically inside the repository.
+     */
+    public GameSession findEmptySession(String username) {
+        return sessionRepository.joinOrCreateMatchmaking(
+                username,
+                () -> newSession(username, Utils.generateGameId(), true),
+                this::createRules);
     }
 
     public void quitSession(Integer id){
-        sessionRepository.deleteById(id);
+        if (id != null) {
+            sessionRepository.deleteById(id);
+        }
     }
-
-
 
 }
