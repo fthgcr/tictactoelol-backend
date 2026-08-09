@@ -221,12 +221,46 @@ public class SessionService {
         return true;
     }
 
-    public Boolean replaySession (String gameId){
+    /**
+     * Starts a rematch on the existing session instead of throwing it away.
+     *
+     * Deleting the session (as this used to do) meant the player who pressed Replay
+     * recreated it as first player while the opponent knew nothing about it - and if
+     * both pressed Replay, the second request deleted the session the first one had
+     * just created. Resetting in place keeps one session, both players and the score,
+     * and the result is broadcast so the two clients start the new round together.
+     *
+     * The loser of the previous round moves first, and pressing Replay twice is
+     * harmless: an already reset (still active) session is returned untouched.
+     *
+     * @return the session both clients should switch to, or null if it is gone
+     */
+    public GameSession replayGame(String gameId) {
         GameSession gameSession = sessionRepository.findByGameId(gameId);
-        if(gameSession != null && gameSession.getSecondPlayer() != null){
-            sessionRepository.deleteByGameId(gameId);
+        if (gameSession == null || gameSession.getSecondPlayer() == null) {
+            return gameSession;
         }
-        return true;
+        synchronized (gameSession) {
+            if (!gameSession.isFinished()) {
+                return gameSession;
+            }
+            int previousWinner = gameSession.getGameStatus();
+            gameSession.setPlayArea(Utils.fillEmptyGameArea());
+            gameSession.setCellOwners(Utils.fillEmptyCellOwners());
+            gameSession.setGameRule(createRules());
+            gameSession.setGameStatus(-1);
+            gameSession.setDate(new Date());
+            // The loser opens the next round; after a draw (status 2) the first player does.
+            boolean hadWinner = previousWinner == 0 || previousWinner == 1;
+            gameSession.setTurn(hadWinner ? (previousWinner == 0 ? 1 : 0) : 0);
+            return sessionRepository.save(gameSession);
+        }
+    }
+
+    /** @deprecated kept for the old HTTP endpoint; prefer the websocket replay signal. */
+    @Deprecated
+    public Boolean replaySession(String gameId) {
+        return replayGame(gameId) != null;
     }
 
     /**

@@ -24,6 +24,7 @@ public class SessionController {
     // client broadcast a forged game state (e.g. a fake win). All state now comes from the server.
     private static final int SIGNAL_HEALTH_CHECK = -1; // re-sync current server state
     private static final int SIGNAL_SKIP_TURN = -3;    // current player's timer ran out
+    private static final int SIGNAL_REPLAY = -4;       // rematch on the same session
 
     private final SessionService sessionService;
 
@@ -55,6 +56,9 @@ public class SessionController {
             return sessionService.healthCheckSession(gameAreaRequest.getGameId());
         } else if (index != null && index == SIGNAL_SKIP_TURN) {
             return sessionService.skipTurn(gameAreaRequest.getGameId(), gameAreaRequest.getPlayerId());
+        } else if (index != null && index == SIGNAL_REPLAY) {
+            // Broadcast so both players enter the rematch together, not just the one who asked.
+            return sessionService.replayGame(gameAreaRequest.getGameId());
         } else {
             return sessionService.setPlayArea(gameAreaRequest);
         }
