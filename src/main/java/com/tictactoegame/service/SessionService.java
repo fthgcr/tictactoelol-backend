@@ -233,15 +233,18 @@ public class SessionService {
      * The loser of the previous round moves first, and pressing Replay twice is
      * harmless: an already reset (still active) session is returned untouched.
      *
+     * Only the two players may start a rematch. Anyone else subscribed to the topic
+     * is a spectator, and a spectator must not be able to wipe a finished board.
+     *
      * @return the session both clients should switch to, or null if it is gone
      */
-    public GameSession replayGame(String gameId) {
+    public GameSession replayGame(String gameId, String playerId) {
         GameSession gameSession = sessionRepository.findByGameId(gameId);
         if (gameSession == null || gameSession.getSecondPlayer() == null) {
             return gameSession;
         }
         synchronized (gameSession) {
-            if (!gameSession.isFinished()) {
+            if (!gameSession.isFinished() || playerIndexOf(gameSession, playerId) == -1) {
                 return gameSession;
             }
             int previousWinner = gameSession.getGameStatus();
@@ -257,12 +260,6 @@ public class SessionService {
         }
     }
 
-    /** @deprecated kept for the old HTTP endpoint; prefer the websocket replay signal. */
-    @Deprecated
-    public Boolean replaySession(String gameId) {
-        return replayGame(gameId) != null;
-    }
-
     /**
      * Matchmaking queue: take the seat in the longest waiting session, or open a new one.
      * Claiming and rule generation happen atomically inside the repository.
@@ -274,10 +271,21 @@ public class SessionService {
                 this::createRules);
     }
 
-    public void quitSession(Integer id){
-        if (id != null) {
-            sessionRepository.deleteById(id);
+    /**
+     * Leaves an unstarted matchmaking seat. Only the player sitting in it may drop it,
+     * and only while nobody has joined: without that check any caller who knew a uid
+     * could delete a game in progress.
+     */
+    public void quitSession(Integer id, String playerId){
+        if (id == null || playerId == null || playerId.isBlank()) {
+            return;
         }
+        sessionRepository.findAll().stream()
+                .filter(session -> session.getUid() == id)
+                .filter(session -> session.getSecondPlayer() == null)
+                .filter(session -> playerId.equalsIgnoreCase(session.getFirstPlayer()))
+                .findFirst()
+                .ifPresent(session -> sessionRepository.deleteByGameId(session.getGameId()));
     }
 
 }

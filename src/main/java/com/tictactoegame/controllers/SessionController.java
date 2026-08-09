@@ -58,16 +58,16 @@ public class SessionController {
             return sessionService.skipTurn(gameAreaRequest.getGameId(), gameAreaRequest.getPlayerId());
         } else if (index != null && index == SIGNAL_REPLAY) {
             // Broadcast so both players enter the rematch together, not just the one who asked.
-            return sessionService.replayGame(gameAreaRequest.getGameId());
+            // The service checks the sender is a player, so spectators cannot reset the board.
+            return sessionService.replayGame(gameAreaRequest.getGameId(), gameAreaRequest.getPlayerId());
         } else {
             return sessionService.setPlayArea(gameAreaRequest);
         }
     }
 
-    @GetMapping ("/replaySession/{gameId}")
-    public ResponseEntity<Boolean> replaySession(@PathVariable String gameId)  {
-        return new ResponseEntity<>(sessionService.replaySession(gameId), HttpStatus.OK);
-    }
+    // The old GET /replaySession/{gameId} is gone: it took no identity, so anyone who
+    // knew a gameId could reset someone else's board. Rematches go through the
+    // websocket replay signal, which validates the sender.
 
     @GetMapping ("/findMatch/{username}")
     public ResponseEntity<GameSession> findMatch(@PathVariable String username) {
@@ -75,9 +75,10 @@ public class SessionController {
     }
 
     @DeleteMapping ("/quitSession/{id}")
-    public ResponseEntity<Boolean> quitSession(@PathVariable Integer id) throws IllegalAccessException {
+    public ResponseEntity<Boolean> quitSession(@PathVariable Integer id,
+                                               @RequestParam String playerId) throws IllegalAccessException {
         try {
-            sessionService.quitSession(id);
+            sessionService.quitSession(id, playerId);
             return new ResponseEntity<>(true, HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(false, HttpStatus.OK);
