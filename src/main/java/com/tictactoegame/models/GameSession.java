@@ -55,6 +55,34 @@ public class GameSession {
     @JsonIgnore
     private long lastActivity;
 
+    /**
+     * Epoch millis the current turn began. The turn watchdog measures against this to
+     * notice a player who walked away: their client is gone, so nobody sends the skip
+     * signal that normally ends a turn.
+     */
+    @JsonIgnore
+    private long turnStartedAt;
+
+    /**
+     * How many turns in a row the watchdog had to end for each player because they
+     * never answered. Counted per player, not per session: an opponent who is still
+     * playing normally must not keep resetting the absent player's tally.
+     */
+    @JsonIgnore
+    private int firstPlayerMissedTurns;
+
+    @JsonIgnore
+    private int secondPlayerMissedTurns;
+
+    /**
+     * Why the game ended, when it was not ended by play. Null for a normal win or draw;
+     * {@link #END_REASON_OPPONENT_LEFT} when the watchdog awarded the win because a
+     * player stopped responding. The client uses it to word the result honestly.
+     */
+    private String endReason;
+
+    public static final String END_REASON_OPPONENT_LEFT = "OPPONENT_LEFT";
+
     public String[] getCellOwners() {
         if (cellOwnersArray == null && cellOwners != null) {
             cellOwnersArray = cellOwners.split(",", -1);
@@ -98,6 +126,38 @@ public class GameSession {
     @JsonIgnore
     public boolean isFinished() {
         return gameStatus != -1;
+    }
+
+    /**
+     * Hands the turn to a player and restarts that turn's clock. Every turn change goes
+     * through here so the watchdog can never read a stale deadline.
+     */
+    public void startTurn(int player) {
+        this.turn = player;
+        this.turnStartedAt = System.currentTimeMillis();
+    }
+
+    @JsonIgnore
+    public int getMissedTurns(int player) {
+        return player == 0 ? firstPlayerMissedTurns : secondPlayerMissedTurns;
+    }
+
+    /** The watchdog had to end this player's turn for them. */
+    public void recordMissedTurn(int player) {
+        if (player == 0) {
+            firstPlayerMissedTurns++;
+        } else {
+            secondPlayerMissedTurns++;
+        }
+    }
+
+    /** Anything this player did proves they are still here, so the tally starts over. */
+    public void clearMissedTurns(int player) {
+        if (player == 0) {
+            firstPlayerMissedTurns = 0;
+        } else {
+            secondPlayerMissedTurns = 0;
+        }
     }
 
 }

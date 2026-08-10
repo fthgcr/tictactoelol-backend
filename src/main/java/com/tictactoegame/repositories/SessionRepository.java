@@ -94,6 +94,8 @@ public class SessionRepository {
                     && !gameSession.getFirstPlayer().equalsIgnoreCase(playerId)) {
                 gameSession.setGameRule(gameRuleFactory.get());
                 gameSession.setSecondPlayer(playerId);
+                // The match starts here, so the first turn's clock starts here too.
+                gameSession.startTurn(0);
                 touch(gameSession);
             }
             return gameSession;
@@ -117,6 +119,8 @@ public class SessionRepository {
             }
             waiting.setGameRule(gameRuleFactory.get());
             waiting.setSecondPlayer(username);
+            // The match starts here, so the first turn's clock starts here too.
+            waiting.startTurn(0);
             touch(waiting);
             return waiting;
         }

@@ -107,7 +107,9 @@ public class SessionService {
                 }
             }
             // A wrong answer still costs the turn - that is part of the game design.
-            gameSession.setTurn(player == 0 ? 1 : 0);
+            // Answering at all proves the player is here, so their missed-turn tally resets.
+            gameSession.clearMissedTurns(player);
+            gameSession.startTurn(player == 0 ? 1 : 0);
             return sessionRepository.save(gameSession);
         }
     }
@@ -127,7 +129,9 @@ public class SessionService {
             if (!gameActive || player == -1 || !Objects.equals(gameSession.getTurn(), player)) {
                 return gameSession;
             }
-            gameSession.setTurn(player == 0 ? 1 : 0);
+            // The signal came from their own client, so they are still at the keyboard.
+            gameSession.clearMissedTurns(player);
+            gameSession.startTurn(player == 0 ? 1 : 0);
             return sessionRepository.save(gameSession);
         }
     }
@@ -253,9 +257,14 @@ public class SessionService {
             gameSession.setGameRule(createRules());
             gameSession.setGameStatus(-1);
             gameSession.setDate(new Date());
+            gameSession.setEndReason(null);
+            // Both players are demonstrably here - one asked for the rematch, the other
+            // is about to see it - so neither carries a missed turn into the new round.
+            gameSession.clearMissedTurns(0);
+            gameSession.clearMissedTurns(1);
             // The loser opens the next round; after a draw (status 2) the first player does.
             boolean hadWinner = previousWinner == 0 || previousWinner == 1;
-            gameSession.setTurn(hadWinner ? (previousWinner == 0 ? 1 : 0) : 0);
+            gameSession.startTurn(hadWinner ? (previousWinner == 0 ? 1 : 0) : 0);
             return sessionRepository.save(gameSession);
         }
     }
@@ -269,6 +278,56 @@ public class SessionService {
                 username,
                 () -> newSession(username, Utils.generateGameId(), true),
                 this::createRules);
+    }
+
+    /**
+     * Ends turns that nobody answered, and eventually the game itself.
+     *
+     * The normal turn timer lives in the browser of whoever is on the clock, so when that
+     * player closes the tab the skip signal never arrives and the opponent waits forever.
+     * This is the server-side backstop: it measures each turn against its own clock, so it
+     * does not need either client to be present.
+     *
+     * The first expiry is treated as an ordinary skipped turn - a reload or a tunnel costs
+     * you a turn, not the match. Only after maxMissedTurns unanswered turns *by the same
+     * player* is the game handed to the opponent. The tally is per player and any action
+     * clears it, so someone who is still playing can never be timed out by their own pace.
+     *
+     * @return the sessions whose state changed, for the caller to broadcast
+     */
+    public List<GameSession> sweepAbandonedTurns(long turnTimeoutMillis, int maxMissedTurns) {
+        List<GameSession> changed = new ArrayList<>();
+        long now = System.currentTimeMillis();
+        for (GameSession gameSession : sessionRepository.findAll()) {
+            synchronized (gameSession) {
+                if (gameSession.isFinished() || gameSession.getSecondPlayer() == null) {
+                    continue;
+                }
+                Integer turn = gameSession.getTurn();
+                if (turn == null || (turn != 0 && turn != 1)) {
+                    continue;
+                }
+                // Fall back to the last write for sessions that predate the turn clock.
+                long startedAt = gameSession.getTurnStartedAt() > 0
+                        ? gameSession.getTurnStartedAt()
+                        : gameSession.getLastActivity();
+                if (startedAt <= 0 || now - startedAt < turnTimeoutMillis) {
+                    continue;
+                }
+
+                int absent = turn;
+                int present = absent == 0 ? 1 : 0;
+                gameSession.recordMissedTurn(absent);
+                if (gameSession.getMissedTurns(absent) >= maxMissedTurns) {
+                    gameSession.setGameStatus(present);
+                    gameSession.setEndReason(GameSession.END_REASON_OPPONENT_LEFT);
+                } else {
+                    gameSession.startTurn(present);
+                }
+                changed.add(sessionRepository.save(gameSession));
+            }
+        }
+        return changed;
     }
 
     /**
