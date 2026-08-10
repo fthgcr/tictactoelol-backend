@@ -56,6 +56,17 @@
   },
   {
     "pid": 6,
+    "name": "Ambessa",
+    "role": "Fighter,Assassin",
+    "difficulty": "3",
+    "region": "Noxus",
+    "releaseDate": "2024",
+    "abilityResource": "Energy",
+    "meleeRanged": "Melee",
+    "gender": "Female"
+  },
+  {
+    "pid": 7,
     "name": "Amumu",
     "role": "Mages,Tank",
     "difficulty": "1",
@@ -66,7 +77,7 @@
     "gender": "Male"
   },
   {
-    "pid": 7,
+    "pid": 8,
     "name": "Anivia",
     "role": "Mages,Support",
     "difficulty": "3",
@@ -77,7 +88,7 @@
     "gender": "Female"
   },
   {
-    "pid": 8,
+    "pid": 9,
     "name": "Annie",
     "role": "Mages",
     "difficulty": "2",
@@ -88,7 +99,7 @@
     "gender": "Female"
   },
   {
-    "pid": 9,
+    "pid": 10,
     "name": "Aphelios",
     "role": "Marksman",
     "difficulty": "3",
@@ -99,7 +110,7 @@
     "gender": "Male"
   },
   {
-    "pid": 10,
+    "pid": 11,
     "name": "Ashe",
     "role": "Marksman,Support",
     "difficulty": "2",
@@ -110,7 +121,7 @@
     "gender": "Female"
   },
   {
-    "pid": 11,
+    "pid": 12,
     "name": "Aurelion Sol",
     "role": "Mages",
     "difficulty": "2",
@@ -121,7 +132,18 @@
     "gender": "Male"
   },
   {
-    "pid": 12,
+    "pid": 13,
+    "name": "Aurora",
+    "role": "Mages,Assassin",
+    "difficulty": "2",
+    "region": "The Freljord",
+    "releaseDate": "2024",
+    "abilityResource": "Mana",
+    "meleeRanged": "Ranged",
+    "gender": "Female"
+  },
+  {
+    "pid": 14,
     "name": "Azir",
     "role": "Mages,Marksman",
     "difficulty": "3",
@@ -132,7 +154,7 @@
     "gender": "Male"
   },
   {
-    "pid": 13,
+    "pid": 15,
     "name": "Bard",
     "role": "Mages,Support",
     "difficulty": "3",
@@ -143,7 +165,7 @@
     "gender": "Male"
   },
   {
-    "pid": 14,
+    "pid": 16,
     "name": "Bel'Veth",
     "role": "Fighter",
     "difficulty": "3",
@@ -154,7 +176,7 @@
     "gender": "Female"
   },
   {
-    "pid": 15,
+    "pid": 17,
     "name": "Blitzcrank",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -165,7 +187,7 @@
     "gender": "Unknown"
   },
   {
-    "pid": 16,
+    "pid": 18,
     "name": "Brand",
     "role": "Mages",
     "difficulty": "2",
@@ -176,7 +198,7 @@
     "gender": "Male"
   },
   {
-    "pid": 17,
+    "pid": 19,
     "name": "Braum",
     "role": "Support,Tank",
     "difficulty": "1",
@@ -187,7 +209,7 @@
     "gender": "Male"
   },
   {
-    "pid": 18,
+    "pid": 20,
     "name": "Briar",
     "role": "Assassin,Fighter",
     "difficulty": "1",
@@ -198,7 +220,7 @@
     "gender": "Female"
   },
   {
-    "pid": 19,
+    "pid": 21,
     "name": "Caitlyn",
     "role": "Marksman",
     "difficulty": "2",
@@ -209,7 +231,7 @@
     "gender": "Female"
   },
   {
-    "pid": 20,
+    "pid": 22,
     "name": "Camille",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -220,7 +242,7 @@
     "gender": "Female"
   },
   {
-    "pid": 21,
+    "pid": 23,
     "name": "Cassiopeia",
     "role": "Mages",
     "difficulty": "3",
@@ -231,7 +253,7 @@
     "gender": "Female"
   },
   {
-    "pid": 22,
+    "pid": 24,
     "name": "Cho'Gath",
     "role": "Mages,Tank",
     "difficulty": "2",
@@ -242,7 +264,7 @@
     "gender": "Male"
   },
   {
-    "pid": 23,
+    "pid": 25,
     "name": "Corki",
     "role": "Marksman",
     "difficulty": "2",
@@ -253,7 +275,7 @@
     "gender": "Male"
   },
   {
-    "pid": 24,
+    "pid": 26,
     "name": "Darius",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -264,7 +286,7 @@
     "gender": "Male"
   },
   {
-    "pid": 25,
+    "pid": 27,
     "name": "Diana",
     "role": "Fighter,Mages",
     "difficulty": "2",
@@ -275,7 +297,7 @@
     "gender": "Female"
   },
   {
-    "pid": 26,
+    "pid": 28,
     "name": "Dr. Mundo",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -286,7 +308,7 @@
     "gender": "Male"
   },
   {
-    "pid": 27,
+    "pid": 29,
     "name": "Draven",
     "role": "Marksman",
     "difficulty": "3",
@@ -297,7 +319,7 @@
     "gender": "Male"
   },
   {
-    "pid": 28,
+    "pid": 30,
     "name": "Ekko",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -308,7 +330,7 @@
     "gender": "Male"
   },
   {
-    "pid": 29,
+    "pid": 31,
     "name": "Elise",
     "role": "Fighter,Mages",
     "difficulty": "3",
@@ -319,7 +341,7 @@
     "gender": "Female"
   },
   {
-    "pid": 30,
+    "pid": 32,
     "name": "Evelynn",
     "role": "Assassin,Mages",
     "difficulty": "3",
@@ -330,7 +352,7 @@
     "gender": "Female"
   },
   {
-    "pid": 31,
+    "pid": 33,
     "name": "Ezreal",
     "role": "Mages,Marksman",
     "difficulty": "2",
@@ -341,7 +363,7 @@
     "gender": "Male"
   },
   {
-    "pid": 32,
+    "pid": 34,
     "name": "Fiddlesticks",
     "role": "Mages,Support",
     "difficulty": "3",
@@ -352,7 +374,7 @@
     "gender": "Unknown"
   },
   {
-    "pid": 33,
+    "pid": 35,
     "name": "Fiora",
     "role": "Fighter",
     "difficulty": "1",
@@ -363,7 +385,7 @@
     "gender": "Female"
   },
   {
-    "pid": 34,
+    "pid": 36,
     "name": "Fizz",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -374,7 +396,7 @@
     "gender": "Male"
   },
   {
-    "pid": 35,
+    "pid": 37,
     "name": "Galio",
     "role": "Mages,Tank",
     "difficulty": "2",
@@ -385,7 +407,7 @@
     "gender": "Male"
   },
   {
-    "pid": 36,
+    "pid": 38,
     "name": "Gangplank",
     "role": "Fighter",
     "difficulty": "3",
@@ -396,7 +418,7 @@
     "gender": "Male"
   },
   {
-    "pid": 37,
+    "pid": 39,
     "name": "Garen",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -407,7 +429,7 @@
     "gender": "Male"
   },
   {
-    "pid": 38,
+    "pid": 40,
     "name": "Gnar",
     "role": "Fighter,Tank",
     "difficulty": "3",
@@ -418,7 +440,7 @@
     "gender": "Male"
   },
   {
-    "pid": 39,
+    "pid": 41,
     "name": "Gragas",
     "role": "Fighter,Mages",
     "difficulty": "2",
@@ -429,7 +451,7 @@
     "gender": "Male"
   },
   {
-    "pid": 40,
+    "pid": 42,
     "name": "Graves",
     "role": "Marksman",
     "difficulty": "1",
@@ -440,7 +462,7 @@
     "gender": "Male"
   },
   {
-    "pid": 41,
+    "pid": 43,
     "name": "Gwen",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -451,7 +473,7 @@
     "gender": "Female"
   },
   {
-    "pid": 42,
+    "pid": 44,
     "name": "Hecarim",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -462,7 +484,7 @@
     "gender": "Male"
   },
   {
-    "pid": 43,
+    "pid": 45,
     "name": "Heimerdinger",
     "role": "Mages,Support",
     "difficulty": "3",
@@ -473,7 +495,7 @@
     "gender": "Male"
   },
   {
-    "pid": 44,
+    "pid": 46,
     "name": "Hwei",
     "role": "Mages",
     "difficulty": "3",
@@ -484,7 +506,7 @@
     "gender": "Male"
   },
   {
-    "pid": 45,
+    "pid": 47,
     "name": "Illaoi",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -495,7 +517,7 @@
     "gender": "Female"
   },
   {
-    "pid": 46,
+    "pid": 48,
     "name": "Irelia",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -506,7 +528,7 @@
     "gender": "Female"
   },
   {
-    "pid": 47,
+    "pid": 49,
     "name": "Ivern",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -517,7 +539,7 @@
     "gender": "Male"
   },
   {
-    "pid": 48,
+    "pid": 50,
     "name": "Janna",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -528,7 +550,7 @@
     "gender": "Female"
   },
   {
-    "pid": 49,
+    "pid": 51,
     "name": "Jarvan IV",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -539,7 +561,7 @@
     "gender": "Male"
   },
   {
-    "pid": 50,
+    "pid": 52,
     "name": "Jax",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -550,7 +572,7 @@
     "gender": "Male"
   },
   {
-    "pid": 51,
+    "pid": 53,
     "name": "Jayce",
     "role": "Fighter,Marksman",
     "difficulty": "2",
@@ -561,7 +583,7 @@
     "gender": "Male"
   },
   {
-    "pid": 52,
+    "pid": 54,
     "name": "Jhin",
     "role": "Mages,Marksman",
     "difficulty": "2",
@@ -572,7 +594,7 @@
     "gender": "Male"
   },
   {
-    "pid": 53,
+    "pid": 55,
     "name": "Jinx",
     "role": "Marksman",
     "difficulty": "2",
@@ -583,7 +605,18 @@
     "gender": "Female"
   },
   {
-    "pid": 54,
+    "pid": 56,
+    "name": "K'Sante",
+    "role": "Fighter,Tank",
+    "difficulty": "3",
+    "region": "Shurima",
+    "releaseDate": "2022",
+    "abilityResource": "Mana",
+    "meleeRanged": "Melee",
+    "gender": "Male"
+  },
+  {
+    "pid": 57,
     "name": "Kai'Sa",
     "role": "Marksman",
     "difficulty": "2",
@@ -594,7 +627,7 @@
     "gender": "Female"
   },
   {
-    "pid": 55,
+    "pid": 58,
     "name": "Kalista",
     "role": "Marksman",
     "difficulty": "2",
@@ -605,7 +638,7 @@
     "gender": "Female"
   },
   {
-    "pid": 56,
+    "pid": 59,
     "name": "Karma",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -616,7 +649,7 @@
     "gender": "Female"
   },
   {
-    "pid": 57,
+    "pid": 60,
     "name": "Karthus",
     "role": "Mages",
     "difficulty": "2",
@@ -627,7 +660,7 @@
     "gender": "Male"
   },
   {
-    "pid": 58,
+    "pid": 61,
     "name": "Kassadin",
     "role": "Assassin,Mages",
     "difficulty": "3",
@@ -638,7 +671,7 @@
     "gender": "Male"
   },
   {
-    "pid": 59,
+    "pid": 62,
     "name": "Katarina",
     "role": "Assassin,Mages",
     "difficulty": "3",
@@ -649,7 +682,7 @@
     "gender": "Female"
   },
   {
-    "pid": 60,
+    "pid": 63,
     "name": "Kayle",
     "role": "Fighter,Support",
     "difficulty": "2",
@@ -660,7 +693,7 @@
     "gender": "Female"
   },
   {
-    "pid": 61,
+    "pid": 64,
     "name": "Kayn",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -671,7 +704,7 @@
     "gender": "Male"
   },
   {
-    "pid": 62,
+    "pid": 65,
     "name": "Kennen",
     "role": "Mages,Marksman",
     "difficulty": "2",
@@ -682,7 +715,7 @@
     "gender": "Male"
   },
   {
-    "pid": 63,
+    "pid": 66,
     "name": "Kha'Zix",
     "role": "Assassin",
     "difficulty": "2",
@@ -693,7 +726,7 @@
     "gender": "Male"
   },
   {
-    "pid": 64,
+    "pid": 67,
     "name": "Kindred",
     "role": "Marksman",
     "difficulty": "2",
@@ -704,7 +737,7 @@
     "gender": "Male"
   },
   {
-    "pid": 65,
+    "pid": 68,
     "name": "Kled",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -715,7 +748,7 @@
     "gender": "Male"
   },
   {
-    "pid": 66,
+    "pid": 69,
     "name": "Kog'Maw",
     "role": "Mages,Marksman",
     "difficulty": "2",
@@ -726,18 +759,7 @@
     "gender": "Male"
   },
   {
-    "pid": 67,
-    "name": "K'sante",
-    "role": "Fighter,Tank",
-    "difficulty": "3",
-    "region": "Shurima",
-    "releaseDate": "2022",
-    "abilityResource": "Mana",
-    "meleeRanged": "Melee",
-    "gender": "Male"
-  },
-  {
-    "pid": 68,
+    "pid": 70,
     "name": "LeBlanc",
     "role": "Assassin,Mages",
     "difficulty": "3",
@@ -748,7 +770,7 @@
     "gender": "Male"
   },
   {
-    "pid": 69,
+    "pid": 71,
     "name": "Lee Sin",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -759,7 +781,7 @@
     "gender": "Male"
   },
   {
-    "pid": 70,
+    "pid": 72,
     "name": "Leona",
     "role": "Tank,Support",
     "difficulty": "2",
@@ -770,7 +792,7 @@
     "gender": "Female"
   },
   {
-    "pid": 71,
+    "pid": 73,
     "name": "Lillia",
     "role": "Fighter,Mages",
     "difficulty": "3",
@@ -781,7 +803,7 @@
     "gender": "Female"
   },
   {
-    "pid": 72,
+    "pid": 74,
     "name": "Lissandra",
     "role": "Mages",
     "difficulty": "2",
@@ -792,7 +814,7 @@
     "gender": "Female"
   },
   {
-    "pid": 73,
+    "pid": 75,
     "name": "Lucian",
     "role": "Marksman",
     "difficulty": "2",
@@ -803,7 +825,7 @@
     "gender": "Male"
   },
   {
-    "pid": 74,
+    "pid": 76,
     "name": "Lulu",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -814,7 +836,7 @@
     "gender": "Female"
   },
   {
-    "pid": 75,
+    "pid": 77,
     "name": "Lux",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -825,7 +847,7 @@
     "gender": "Female"
   },
   {
-    "pid": 76,
+    "pid": 78,
     "name": "Malphite",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -836,7 +858,7 @@
     "gender": "Male"
   },
   {
-    "pid": 77,
+    "pid": 79,
     "name": "Malzahar",
     "role": "Assassin,Mages",
     "difficulty": "2",
@@ -847,7 +869,7 @@
     "gender": "Male"
   },
   {
-    "pid": 78,
+    "pid": 80,
     "name": "Maokai",
     "role": "Mages,Tank",
     "difficulty": "1",
@@ -858,7 +880,7 @@
     "gender": "Male"
   },
   {
-    "pid": 79,
+    "pid": 81,
     "name": "Master Yi",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -869,7 +891,18 @@
     "gender": "Male"
   },
   {
-    "pid": 80,
+    "pid": 82,
+    "name": "Mel",
+    "role": "Mages,Support",
+    "difficulty": "2",
+    "region": "Noxus",
+    "releaseDate": "2025",
+    "abilityResource": "Mana",
+    "meleeRanged": "Ranged",
+    "gender": "Female"
+  },
+  {
+    "pid": 83,
     "name": "Milio",
     "role": "Support",
     "difficulty": "2",
@@ -880,7 +913,7 @@
     "gender": "Male"
   },
   {
-    "pid": 81,
+    "pid": 84,
     "name": "Miss Fortune",
     "role": "Marksman",
     "difficulty": "1",
@@ -891,7 +924,7 @@
     "gender": "Female"
   },
   {
-    "pid": 82,
+    "pid": 85,
     "name": "Mordekaiser",
     "role": "Fighter",
     "difficulty": "2",
@@ -902,7 +935,7 @@
     "gender": "Male"
   },
   {
-    "pid": 83,
+    "pid": 86,
     "name": "Morgana",
     "role": "Mages,Support",
     "difficulty": "1",
@@ -913,7 +946,7 @@
     "gender": "Female"
   },
   {
-    "pid": 84,
+    "pid": 87,
     "name": "Naafiri",
     "role": "Assassin",
     "difficulty": "1",
@@ -924,7 +957,7 @@
     "gender": "Female"
   },
   {
-    "pid": 85,
+    "pid": 88,
     "name": "Nami",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -935,7 +968,7 @@
     "gender": "Female"
   },
   {
-    "pid": 86,
+    "pid": 89,
     "name": "Nasus",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -946,7 +979,7 @@
     "gender": "Male"
   },
   {
-    "pid": 87,
+    "pid": 90,
     "name": "Nautilus",
     "role": "Tank,Support",
     "difficulty": "2",
@@ -957,7 +990,7 @@
     "gender": "Male"
   },
   {
-    "pid": 88,
+    "pid": 91,
     "name": "Neeko",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -968,7 +1001,7 @@
     "gender": "Female"
   },
   {
-    "pid": 89,
+    "pid": 92,
     "name": "Nidalee",
     "role": "Assassin,Mages",
     "difficulty": "3",
@@ -979,7 +1012,7 @@
     "gender": "Female"
   },
   {
-    "pid": 90,
+    "pid": 93,
     "name": "Nilah",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -990,7 +1023,7 @@
     "gender": "Female"
   },
   {
-    "pid": 91,
+    "pid": 94,
     "name": "Nocturne",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -1001,7 +1034,7 @@
     "gender": "Male"
   },
   {
-    "pid": 92,
+    "pid": 95,
     "name": "Nunu & Willump",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1012,7 +1045,7 @@
     "gender": "Male"
   },
   {
-    "pid": 93,
+    "pid": 96,
     "name": "Olaf",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1023,7 +1056,7 @@
     "gender": "Male"
   },
   {
-    "pid": 94,
+    "pid": 97,
     "name": "Orianna",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -1034,7 +1067,7 @@
     "gender": "Female"
   },
   {
-    "pid": 95,
+    "pid": 98,
     "name": "Ornn",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1045,7 +1078,7 @@
     "gender": "Male"
   },
   {
-    "pid": 96,
+    "pid": 99,
     "name": "Pantheon",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -1056,7 +1089,7 @@
     "gender": "Male"
   },
   {
-    "pid": 97,
+    "pid": 100,
     "name": "Poppy",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1067,7 +1100,7 @@
     "gender": "Female"
   },
   {
-    "pid": 98,
+    "pid": 101,
     "name": "Pyke",
     "role": "Assassin,Support",
     "difficulty": "2",
@@ -1078,7 +1111,7 @@
     "gender": "Male"
   },
   {
-    "pid": 99,
+    "pid": 102,
     "name": "Qiyana",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -1089,7 +1122,7 @@
     "gender": "Female"
   },
   {
-    "pid": 100,
+    "pid": 103,
     "name": "Quinn",
     "role": "Assassin,Marksman",
     "difficulty": "2",
@@ -1100,7 +1133,7 @@
     "gender": "Female"
   },
   {
-    "pid": 101,
+    "pid": 104,
     "name": "Rakan",
     "role": "Support",
     "difficulty": "2",
@@ -1111,7 +1144,7 @@
     "gender": "Male"
   },
   {
-    "pid": 102,
+    "pid": 105,
     "name": "Rammus",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1122,7 +1155,7 @@
     "gender": "Male"
   },
   {
-    "pid": 103,
+    "pid": 106,
     "name": "Rek'Sai",
     "role": "Fighter",
     "difficulty": "1",
@@ -1133,7 +1166,7 @@
     "gender": "Female"
   },
   {
-    "pid": 104,
+    "pid": 107,
     "name": "Rell",
     "role": "Support,Tank",
     "difficulty": "1",
@@ -1144,7 +1177,7 @@
     "gender": "Female"
   },
   {
-    "pid": 105,
+    "pid": 108,
     "name": "Renata Glasc",
     "role": "Mages,Support",
     "difficulty": "3",
@@ -1155,7 +1188,7 @@
     "gender": "Female"
   },
   {
-    "pid": 106,
+    "pid": 109,
     "name": "Renekton",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1166,7 +1199,7 @@
     "gender": "Male"
   },
   {
-    "pid": 107,
+    "pid": 110,
     "name": "Rengar",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -1177,7 +1210,7 @@
     "gender": "Male"
   },
   {
-    "pid": 108,
+    "pid": 111,
     "name": "Riven",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -1188,7 +1221,7 @@
     "gender": "Female"
   },
   {
-    "pid": 109,
+    "pid": 112,
     "name": "Rumble",
     "role": "Fighter,Mages",
     "difficulty": "3",
@@ -1199,7 +1232,7 @@
     "gender": "Male"
   },
   {
-    "pid": 110,
+    "pid": 113,
     "name": "Ryze",
     "role": "Fighter,Mages",
     "difficulty": "2",
@@ -1210,7 +1243,7 @@
     "gender": "Male"
   },
   {
-    "pid": 111,
+    "pid": 114,
     "name": "Samira",
     "role": "Marksman",
     "difficulty": "2",
@@ -1221,7 +1254,7 @@
     "gender": "Female"
   },
   {
-    "pid": 112,
+    "pid": 115,
     "name": "Sejuani",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1232,7 +1265,7 @@
     "gender": "Female"
   },
   {
-    "pid": 113,
+    "pid": 116,
     "name": "Senna",
     "role": "Marksman,Support",
     "difficulty": "2",
@@ -1243,7 +1276,7 @@
     "gender": "Female"
   },
   {
-    "pid": 114,
+    "pid": 117,
     "name": "Seraphine",
     "role": "Mages,Support",
     "difficulty": "1",
@@ -1254,7 +1287,7 @@
     "gender": "Female"
   },
   {
-    "pid": 115,
+    "pid": 118,
     "name": "Sett",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1265,7 +1298,7 @@
     "gender": "Male"
   },
   {
-    "pid": 116,
+    "pid": 119,
     "name": "Shaco",
     "role": "Assassin",
     "difficulty": "3",
@@ -1276,7 +1309,7 @@
     "gender": "Male"
   },
   {
-    "pid": 117,
+    "pid": 120,
     "name": "Shen",
     "role": "Tank",
     "difficulty": "2",
@@ -1287,7 +1320,7 @@
     "gender": "Male"
   },
   {
-    "pid": 118,
+    "pid": 121,
     "name": "Shyvana",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1298,7 +1331,7 @@
     "gender": "Female"
   },
   {
-    "pid": 119,
+    "pid": 122,
     "name": "Singed",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1309,7 +1342,7 @@
     "gender": "Male"
   },
   {
-    "pid": 120,
+    "pid": 123,
     "name": "Sion",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1320,7 +1353,7 @@
     "gender": "Male"
   },
   {
-    "pid": 121,
+    "pid": 124,
     "name": "Sivir",
     "role": "Marksman",
     "difficulty": "2",
@@ -1331,7 +1364,7 @@
     "gender": "Female"
   },
   {
-    "pid": 122,
+    "pid": 125,
     "name": "Skarner",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1342,7 +1375,18 @@
     "gender": "Male"
   },
   {
-    "pid": 123,
+    "pid": 126,
+    "name": "Smolder",
+    "role": "Marksman,Mages",
+    "difficulty": "2",
+    "region": "Runeterra",
+    "releaseDate": "2024",
+    "abilityResource": "Mana",
+    "meleeRanged": "Ranged",
+    "gender": "Male"
+  },
+  {
+    "pid": 127,
     "name": "Sona",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -1353,7 +1397,7 @@
     "gender": "Female"
   },
   {
-    "pid": 124,
+    "pid": 128,
     "name": "Soraka",
     "role": "Mages,Support",
     "difficulty": "1",
@@ -1364,7 +1408,7 @@
     "gender": "Female"
   },
   {
-    "pid": 125,
+    "pid": 129,
     "name": "Swain",
     "role": "Fighter,Mages",
     "difficulty": "3",
@@ -1375,7 +1419,7 @@
     "gender": "Male"
   },
   {
-    "pid": 126,
+    "pid": 130,
     "name": "Sylas",
     "role": "Assassin,Mages",
     "difficulty": "2",
@@ -1386,7 +1430,7 @@
     "gender": "Male"
   },
   {
-    "pid": 127,
+    "pid": 131,
     "name": "Syndra",
     "role": "Mages",
     "difficulty": "3",
@@ -1397,7 +1441,7 @@
     "gender": "Female"
   },
   {
-    "pid": 128,
+    "pid": 132,
     "name": "Tahm Kench",
     "role": "Support,Tank",
     "difficulty": "2",
@@ -1408,7 +1452,7 @@
     "gender": "Male"
   },
   {
-    "pid": 129,
+    "pid": 133,
     "name": "Taliyah",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -1419,7 +1463,7 @@
     "gender": "Female"
   },
   {
-    "pid": 130,
+    "pid": 134,
     "name": "Talon",
     "role": "Assassin",
     "difficulty": "2",
@@ -1430,7 +1474,7 @@
     "gender": "Male"
   },
   {
-    "pid": 131,
+    "pid": 135,
     "name": "Taric",
     "role": "Fighter,Support",
     "difficulty": "1",
@@ -1441,7 +1485,7 @@
     "gender": "Male"
   },
   {
-    "pid": 132,
+    "pid": 136,
     "name": "Teemo",
     "role": "Assassin,Marksman",
     "difficulty": "2",
@@ -1452,7 +1496,7 @@
     "gender": "Male"
   },
   {
-    "pid": 133,
+    "pid": 137,
     "name": "Thresh",
     "role": "Fighter,Support",
     "difficulty": "2",
@@ -1463,7 +1507,7 @@
     "gender": "Male"
   },
   {
-    "pid": 134,
+    "pid": 138,
     "name": "Tristana",
     "role": "Assassin,Marksman",
     "difficulty": "2",
@@ -1474,7 +1518,7 @@
     "gender": "Female"
   },
   {
-    "pid": 135,
+    "pid": 139,
     "name": "Trundle",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1485,7 +1529,7 @@
     "gender": "Male"
   },
   {
-    "pid": 136,
+    "pid": 140,
     "name": "Tryndamere",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -1496,7 +1540,7 @@
     "gender": "Male"
   },
   {
-    "pid": 137,
+    "pid": 141,
     "name": "Twisted Fate",
     "role": "Mages",
     "difficulty": "3",
@@ -1507,7 +1551,7 @@
     "gender": "Male"
   },
   {
-    "pid": 138,
+    "pid": 142,
     "name": "Twitch",
     "role": "Assassin,Marksman",
     "difficulty": "2",
@@ -1518,7 +1562,7 @@
     "gender": "Male"
   },
   {
-    "pid": 139,
+    "pid": 143,
     "name": "Udyr",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1529,7 +1573,7 @@
     "gender": "Male"
   },
   {
-    "pid": 140,
+    "pid": 144,
     "name": "Urgot",
     "role": "Fighter,Tank",
     "difficulty": "3",
@@ -1540,7 +1584,7 @@
     "gender": "Male"
   },
   {
-    "pid": 141,
+    "pid": 145,
     "name": "Varus",
     "role": "Mages,Marksman",
     "difficulty": "1",
@@ -1551,7 +1595,7 @@
     "gender": "Male"
   },
   {
-    "pid": 142,
+    "pid": 146,
     "name": "Vayne",
     "role": "Assassin,Marksman",
     "difficulty": "3",
@@ -1562,7 +1606,7 @@
     "gender": "Female"
   },
   {
-    "pid": 143,
+    "pid": 147,
     "name": "Veigar",
     "role": "Mages",
     "difficulty": "2",
@@ -1573,7 +1617,7 @@
     "gender": "Male"
   },
   {
-    "pid": 144,
+    "pid": 148,
     "name": "Vel'Koz",
     "role": "Mages",
     "difficulty": "3",
@@ -1584,7 +1628,7 @@
     "gender": "Male"
   },
   {
-    "pid": 145,
+    "pid": 149,
     "name": "Vex",
     "role": "Mages",
     "difficulty": "1",
@@ -1595,7 +1639,7 @@
     "gender": "Female"
   },
   {
-    "pid": 146,
+    "pid": 150,
     "name": "Vi",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -1606,7 +1650,7 @@
     "gender": "Female"
   },
   {
-    "pid": 147,
+    "pid": 151,
     "name": "Viego",
     "role": "Assassin,Fighter",
     "difficulty": "2",
@@ -1617,7 +1661,7 @@
     "gender": "Male"
   },
   {
-    "pid": 148,
+    "pid": 152,
     "name": "Viktor",
     "role": "Mages",
     "difficulty": "3",
@@ -1628,7 +1672,7 @@
     "gender": "Male"
   },
   {
-    "pid": 149,
+    "pid": 153,
     "name": "Vladimir",
     "role": "Mages",
     "difficulty": "2",
@@ -1639,7 +1683,7 @@
     "gender": "Male"
   },
   {
-    "pid": 150,
+    "pid": 154,
     "name": "Volibear",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1650,7 +1694,7 @@
     "gender": "Male"
   },
   {
-    "pid": 151,
+    "pid": 155,
     "name": "Warwick",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1661,7 +1705,7 @@
     "gender": "Male"
   },
   {
-    "pid": 152,
+    "pid": 156,
     "name": "Wukong",
     "role": "Fighter,Tank",
     "difficulty": "1",
@@ -1672,7 +1716,7 @@
     "gender": "Male"
   },
   {
-    "pid": 153,
+    "pid": 157,
     "name": "Xayah",
     "role": "Marksman",
     "difficulty": "2",
@@ -1683,7 +1727,7 @@
     "gender": "Female"
   },
   {
-    "pid": 154,
+    "pid": 158,
     "name": "Xerath",
     "role": "Mages",
     "difficulty": "3",
@@ -1694,7 +1738,7 @@
     "gender": "Male"
   },
   {
-    "pid": 155,
+    "pid": 159,
     "name": "Xin Zhao",
     "role": "Assassin,Fighter",
     "difficulty": "1",
@@ -1705,7 +1749,7 @@
     "gender": "Male"
   },
   {
-    "pid": 156,
+    "pid": 160,
     "name": "Yasuo",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -1716,7 +1760,7 @@
     "gender": "Male"
   },
   {
-    "pid": 157,
+    "pid": 161,
     "name": "Yone",
     "role": "Assassin,Fighter",
     "difficulty": "3",
@@ -1727,7 +1771,7 @@
     "gender": "Male"
   },
   {
-    "pid": 158,
+    "pid": 162,
     "name": "Yorick",
     "role": "Fighter,Tank",
     "difficulty": "2",
@@ -1738,7 +1782,18 @@
     "gender": "Male"
   },
   {
-    "pid": 159,
+    "pid": 163,
+    "name": "Yunara",
+    "role": "Marksman",
+    "difficulty": "2",
+    "region": "Ionia",
+    "releaseDate": "2025",
+    "abilityResource": "Mana",
+    "meleeRanged": "Ranged",
+    "gender": "Female"
+  },
+  {
+    "pid": 164,
     "name": "Yuumi",
     "role": "Mages,Support",
     "difficulty": "1",
@@ -1749,7 +1804,18 @@
     "gender": "Female"
   },
   {
-    "pid": 160,
+    "pid": 165,
+    "name": "Zaahen",
+    "role": "Fighter,Assassin",
+    "difficulty": "1",
+    "region": "Runeterra",
+    "releaseDate": "2025",
+    "abilityResource": "Mana",
+    "meleeRanged": "Melee",
+    "gender": "Male"
+  },
+  {
+    "pid": 166,
     "name": "Zac",
     "role": "Fighter,Tank",
     "difficulty": "3",
@@ -1760,7 +1826,7 @@
     "gender": "Male"
   },
   {
-    "pid": 161,
+    "pid": 167,
     "name": "Zed",
     "role": "Assassin",
     "difficulty": "2",
@@ -1771,7 +1837,7 @@
     "gender": "Male"
   },
   {
-    "pid": 162,
+    "pid": 168,
     "name": "Zeri",
     "role": "Marksman",
     "difficulty": "2",
@@ -1782,7 +1848,7 @@
     "gender": "Female"
   },
   {
-    "pid": 163,
+    "pid": 169,
     "name": "Ziggs",
     "role": "Mages",
     "difficulty": "2",
@@ -1793,7 +1859,7 @@
     "gender": "Male"
   },
   {
-    "pid": 164,
+    "pid": 170,
     "name": "Zilean",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -1804,7 +1870,7 @@
     "gender": "Male"
   },
   {
-    "pid": 165,
+    "pid": 171,
     "name": "Zoe",
     "role": "Mages,Support",
     "difficulty": "2",
@@ -1815,7 +1881,7 @@
     "gender": "Female"
   },
   {
-    "pid": 166,
+    "pid": 172,
     "name": "Zyra",
     "role": "Mages,Support",
     "difficulty": "2",

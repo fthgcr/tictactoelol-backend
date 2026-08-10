@@ -48,8 +48,12 @@ public class Consts {
             "Release Date : 2020",
             "Release Date : 2021",
             "Release Date : 2022",
-            "Release Date : 2023"};
-            //"Release Date : 2024"};
+            "Release Date : 2023",
+            // 2024 and 2025 hold three champions each, so - like 2018 - they can never
+            // fill a four-champion Connections group. The generator just retries past
+            // them; they still work fine as tic-tac-toe rules.
+            "Release Date : 2024",
+            "Release Date : 2025"};
 
     public static final String[] abilityResource = {
             "Ability Resource : None",
