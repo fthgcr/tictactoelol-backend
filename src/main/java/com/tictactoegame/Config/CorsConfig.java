@@ -10,7 +10,13 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:4200", "https://tictactoelol.onrender.com")
+                .allowedOrigins(
+                        "http://localhost:4200",
+                        "https://tictactoelol.onrender.com",
+                        "https://tictactoelol-frontend.pages.dev",
+                        "https://evetabi.site",
+                        "https://www.evetabi.site"
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true)

@@ -19,7 +19,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-                .setAllowedOrigins("http://localhost:4200", "https://tictactoelol.onrender.com")
+                .setAllowedOrigins(
+                        "http://localhost:4200",
+                        "https://tictactoelol.onrender.com",
+                        "https://tictactoelol-frontend.pages.dev",
+                        "https://evetabi.site",
+                        "https://www.evetabi.site"
+                )
                 .withSockJS();
     }
 }
