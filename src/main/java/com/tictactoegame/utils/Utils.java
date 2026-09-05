@@ -122,9 +122,53 @@ public class Utils {
             case "Gender":
                 isItCorrect = ruleName.equalsIgnoreCase(champions.getGender());
                 break;
+            case "Position":
+                String[] positions = splitString(champions.getPosition());
+                for (String position : positions) {
+                    if (position.equalsIgnoreCase(ruleName)) {
+                        isItCorrect = true;
+                        break;
+                    }
+                }
+                break;
+            case "Species":
+                isItCorrect = ruleName.equalsIgnoreCase(champions.getSpecies());
+                break;
+            case "Skin Count":
+                isItCorrect = isInSkinBucket(ruleName, champions.getSkinCount());
+                break;
         }
 
         return isItCorrect;
+    }
+
+    /**
+     * Matches a skin count against a bucket label ("5-9", "15+").
+     *
+     * A null count means the Data Dragon fetch has not landed yet. Answering "no" for
+     * every champion is the safe direction: RuleCatalog keeps the whole category out of
+     * play until the data is there, so an unmatched skin rule should never reach a board
+     * in the first place - and if one somehow did, it would be caught by the solvability
+     * check rather than silently accepting wrong answers.
+     */
+    public static boolean isInSkinBucket(String bucket, Integer skinCount) {
+        if (bucket == null || skinCount == null) {
+            return false;
+        }
+        try {
+            if (bucket.endsWith("+")) {
+                return skinCount >= Integer.parseInt(bucket.substring(0, bucket.length() - 1).trim());
+            }
+            int dashIndex = bucket.indexOf('-');
+            if (dashIndex < 1) {
+                return false;
+            }
+            int min = Integer.parseInt(bucket.substring(0, dashIndex).trim());
+            int max = Integer.parseInt(bucket.substring(dashIndex + 1).trim());
+            return skinCount >= min && skinCount <= max;
+        } catch (NumberFormatException exception) {
+            return false;
+        }
     }
 
     public static final String getPureRuleString(String rule){

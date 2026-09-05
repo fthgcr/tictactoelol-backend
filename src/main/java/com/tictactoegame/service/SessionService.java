@@ -5,13 +5,13 @@ import com.tictactoegame.models.GameSession;
 import com.tictactoegame.models.requests.GameAreaRequest;
 import com.tictactoegame.models.requests.SessionRequest;
 import com.tictactoegame.repositories.SessionRepository;
+import com.tictactoegame.utils.RuleCatalog;
 import com.tictactoegame.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import com.tictactoegame.utils.Consts;
 
 @Service
 public class SessionService {
@@ -20,10 +20,13 @@ public class SessionService {
 
     private final ChampionsService championsService;
 
+    private final RuleCatalog ruleCatalog;
+
     @Autowired
-    SessionService(SessionRepository sessionRepository, ChampionsService championsService){
+    SessionService(SessionRepository sessionRepository, ChampionsService championsService, RuleCatalog ruleCatalog){
         this.sessionRepository = sessionRepository;
         this.championsService = championsService;
+        this.ruleCatalog = ruleCatalog;
     }
 
     /**
@@ -179,9 +182,11 @@ public class SessionService {
                 "Could not generate a solvable rule set after " + MAX_RULE_GENERATION_ATTEMPTS + " attempts");
     }
 
-    // Picks 6 distinct categories (out of 7) in random order, then one random rule from each.
+    // Picks 6 distinct categories in random order, then one random rule from each.
+    // The catalog decides how many categories there are - it drops any whose data is
+    // not loaded - so this must never fall below the 6 the board needs.
     private String createRule() {
-        List<String[]> categories = new ArrayList<>(Consts.RULE_CATEGORIES);
+        List<String[]> categories = ruleCatalog.categories();
         Collections.shuffle(categories, RANDOM);
         StringBuilder rules = new StringBuilder();
         for (int index = 0; index < 6; index++) {

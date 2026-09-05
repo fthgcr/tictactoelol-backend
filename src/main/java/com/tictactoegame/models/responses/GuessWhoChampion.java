@@ -21,4 +21,8 @@ public class GuessWhoChampion {
     private String abilityResource;
     private String meleeRanged;   // may be multi-valued, comma separated
     private String gender;
+    private String position;      // lane, may be multi-valued, comma separated
+    private String species;       // lore species, single valued
+    /** Skins excluding the base one; null while the Data Dragon fetch has not landed. */
+    private Integer skinCount;
 }

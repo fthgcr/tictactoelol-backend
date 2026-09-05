@@ -69,8 +69,54 @@ public class Consts {
             "Gender : Male",
             "Gender : Female"};
 
-    // All rule categories in one place; used by the tic-tac-toe rule generator
-    // and the Connections puzzle generator.
+    /** Lane. Multi-valued per champion, so these overlap on purpose. */
+    public static final String[] positions = {
+            "Position : Top",
+            "Position : Jungle",
+            "Position : Middle",
+            "Position : Bottom",
+            "Position : Support"};
+
+    /**
+     * Lore species, taken from the official wiki's species categories. Darkin wins over
+     * Ascended (every Darkin is a fallen Ascended) and Yordle over Spirit, so each
+     * champion carries exactly one value. The smallest groups (Darkin, Ascended) hold
+     * four champions, which is the minimum a Connections group needs.
+     */
+    public static final String[] species = {
+            "Species : Human",
+            "Species : Yordle",
+            "Species : Vastaya",
+            "Species : Void",
+            "Species : Darkin",
+            "Species : Ascended",
+            "Species : Celestial",
+            "Species : Undead",
+            "Species : Demon",
+            "Species : Construct",
+            "Species : Spirit",
+            "Species : Beast"};
+
+    /**
+     * Skin count buckets, matched against Champions#skinCount.
+     *
+     * Buckets rather than exact numbers: "Skin Count : 17" would fit a single champion,
+     * which is useless as a rule and impossible as a Connections group.
+     *
+     * This category is only in play when the skin data has been fetched - see RuleCatalog.
+     */
+    public static final String[] skinCounts = {
+            "Skin Count : 0-4",
+            "Skin Count : 5-9",
+            "Skin Count : 10-14",
+            "Skin Count : 15+"};
+
+    /**
+     * Rule categories backed by champions.json alone; these are always available.
+     * Categories that depend on data fetched at runtime are added by
+     * {@link com.tictactoegame.utils.RuleCatalog}, which is what the game
+     * generators actually read - do not use this list directly.
+     */
     public static final List<String[]> RULE_CATEGORIES = List.of(
             regions,
             difficulties,
@@ -78,6 +124,8 @@ public class Consts {
             releaseDates,
             abilityResource,
             meleeRanged,
-            gender);
+            gender,
+            positions,
+            species);
 
 }

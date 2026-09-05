@@ -8,7 +8,9 @@
     "releaseDate": "2013",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Darkin"
   },
   {
     "pid": 2,
@@ -19,7 +21,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Vastaya"
   },
   {
     "pid": 3,
@@ -30,7 +34,9 @@
     "releaseDate": "2010",
     "abilityResource": "Energy",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 4,
@@ -41,7 +47,9 @@
     "releaseDate": "2021",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 5,
@@ -52,7 +60,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Beast"
   },
   {
     "pid": 6,
@@ -63,7 +73,9 @@
     "releaseDate": "2024",
     "abilityResource": "Energy",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 7,
@@ -74,7 +86,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Support",
+    "species": "Yordle"
   },
   {
     "pid": 8,
@@ -85,7 +99,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Spirit"
   },
   {
     "pid": 9,
@@ -96,7 +112,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Support",
+    "species": "Human"
   },
   {
     "pid": 10,
@@ -107,7 +125,9 @@
     "releaseDate": "2019",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 11,
@@ -118,7 +138,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom,Support",
+    "species": "Human"
   },
   {
     "pid": 12,
@@ -129,7 +151,9 @@
     "releaseDate": "2016",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Celestial"
   },
   {
     "pid": 13,
@@ -140,7 +164,9 @@
     "releaseDate": "2024",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Top",
+    "species": "Vastaya"
   },
   {
     "pid": 14,
@@ -151,7 +177,9 @@
     "releaseDate": "2014",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Ascended"
   },
   {
     "pid": 15,
@@ -162,7 +190,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Celestial"
   },
   {
     "pid": 16,
@@ -173,7 +203,9 @@
     "releaseDate": "2022",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Void"
   },
   {
     "pid": 17,
@@ -184,7 +216,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Unknown"
+    "gender": "Unknown",
+    "position": "Support",
+    "species": "Construct"
   },
   {
     "pid": 18,
@@ -195,7 +229,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support,Middle",
+    "species": "Human"
   },
   {
     "pid": 19,
@@ -206,7 +242,9 @@
     "releaseDate": "2014",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Human"
   },
   {
     "pid": 20,
@@ -217,7 +255,9 @@
     "releaseDate": "2023",
     "abilityResource": "Health",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Construct"
   },
   {
     "pid": 21,
@@ -228,7 +268,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 22,
@@ -239,7 +281,9 @@
     "releaseDate": "2016",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 23,
@@ -250,7 +294,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 24,
@@ -261,7 +307,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Void"
   },
   {
     "pid": 25,
@@ -272,7 +320,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Yordle"
   },
   {
     "pid": 26,
@@ -283,7 +333,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 27,
@@ -294,7 +346,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle,Middle",
+    "species": "Celestial"
   },
   {
     "pid": 28,
@@ -305,7 +359,9 @@
     "releaseDate": "2009",
     "abilityResource": "Health",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Jungle",
+    "species": "Human"
   },
   {
     "pid": 29,
@@ -316,7 +372,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 30,
@@ -327,7 +385,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Jungle",
+    "species": "Human"
   },
   {
     "pid": 31,
@@ -338,7 +398,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee,Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 32,
@@ -349,7 +411,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Demon"
   },
   {
     "pid": 33,
@@ -360,7 +424,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 34,
@@ -371,7 +437,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Unknown"
+    "gender": "Unknown",
+    "position": "Jungle",
+    "species": "Demon"
   },
   {
     "pid": 35,
@@ -382,7 +450,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 36,
@@ -393,7 +463,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Yordle"
   },
   {
     "pid": 37,
@@ -404,7 +476,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Support",
+    "species": "Construct"
   },
   {
     "pid": 38,
@@ -415,7 +489,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 39,
@@ -426,7 +502,9 @@
     "releaseDate": "2010",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 40,
@@ -437,7 +515,9 @@
     "releaseDate": "2014",
     "abilityResource": "None",
     "meleeRanged": "Melee,Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Yordle"
   },
   {
     "pid": 41,
@@ -448,7 +528,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Human"
   },
   {
     "pid": 42,
@@ -459,7 +541,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 43,
@@ -470,7 +554,9 @@
     "releaseDate": "2021",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top,Jungle",
+    "species": "Human"
   },
   {
     "pid": 44,
@@ -481,7 +567,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Undead"
   },
   {
     "pid": 45,
@@ -492,7 +580,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Yordle"
   },
   {
     "pid": 46,
@@ -503,7 +593,9 @@
     "releaseDate": "2023",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Support",
+    "species": "Human"
   },
   {
     "pid": 47,
@@ -514,7 +606,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 48,
@@ -525,7 +619,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top,Middle",
+    "species": "Human"
   },
   {
     "pid": 49,
@@ -536,7 +632,9 @@
     "releaseDate": "2016",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Spirit"
   },
   {
     "pid": 50,
@@ -547,7 +645,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Spirit"
   },
   {
     "pid": 51,
@@ -558,7 +658,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 52,
@@ -569,7 +671,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Jungle",
+    "species": "Human"
   },
   {
     "pid": 53,
@@ -580,7 +684,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee,Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Middle",
+    "species": "Human"
   },
   {
     "pid": 54,
@@ -591,7 +697,9 @@
     "releaseDate": "2016",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 55,
@@ -602,7 +710,9 @@
     "releaseDate": "2013",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 56,
@@ -613,7 +723,9 @@
     "releaseDate": "2022",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 57,
@@ -624,7 +736,9 @@
     "releaseDate": "2018",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 58,
@@ -635,7 +749,9 @@
     "releaseDate": "2014",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Undead"
   },
   {
     "pid": 59,
@@ -646,7 +762,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support,Middle",
+    "species": "Human"
   },
   {
     "pid": 60,
@@ -657,7 +775,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Middle",
+    "species": "Undead"
   },
   {
     "pid": 61,
@@ -668,7 +788,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 62,
@@ -679,7 +801,9 @@
     "releaseDate": "2009",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 63,
@@ -690,7 +814,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top,Middle",
+    "species": "Celestial"
   },
   {
     "pid": 64,
@@ -701,7 +827,9 @@
     "releaseDate": "2017",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 65,
@@ -712,7 +840,9 @@
     "releaseDate": "2010",
     "abilityResource": "Energy",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Yordle"
   },
   {
     "pid": 66,
@@ -723,7 +853,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Void"
   },
   {
     "pid": 67,
@@ -734,7 +866,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Spirit"
   },
   {
     "pid": 68,
@@ -745,7 +879,9 @@
     "releaseDate": "2016",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Yordle"
   },
   {
     "pid": 69,
@@ -756,7 +892,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Void"
   },
   {
     "pid": 70,
@@ -767,7 +905,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 71,
@@ -778,7 +918,9 @@
     "releaseDate": "2011",
     "abilityResource": "Energy",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 72,
@@ -789,7 +931,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Celestial"
   },
   {
     "pid": 73,
@@ -800,7 +944,9 @@
     "releaseDate": "2020",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Spirit"
   },
   {
     "pid": 74,
@@ -811,7 +957,9 @@
     "releaseDate": "2013",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 75,
@@ -822,7 +970,9 @@
     "releaseDate": "2013",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom,Middle",
+    "species": "Human"
   },
   {
     "pid": 76,
@@ -833,7 +983,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Yordle"
   },
   {
     "pid": 77,
@@ -844,7 +996,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support,Middle",
+    "species": "Human"
   },
   {
     "pid": 78,
@@ -855,7 +1009,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Support",
+    "species": "Construct"
   },
   {
     "pid": 79,
@@ -866,7 +1022,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 80,
@@ -877,7 +1035,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support,Jungle",
+    "species": "Spirit"
   },
   {
     "pid": 81,
@@ -888,7 +1048,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 82,
@@ -899,7 +1061,9 @@
     "releaseDate": "2025",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Support",
+    "species": "Human"
   },
   {
     "pid": 83,
@@ -910,7 +1074,9 @@
     "releaseDate": "2023",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Human"
   },
   {
     "pid": 84,
@@ -921,7 +1087,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 85,
@@ -932,7 +1100,9 @@
     "releaseDate": "2010",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Undead"
   },
   {
     "pid": 86,
@@ -943,7 +1113,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support,Middle",
+    "species": "Celestial"
   },
   {
     "pid": 87,
@@ -954,7 +1126,9 @@
     "releaseDate": "2023",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Jungle",
+    "species": "Darkin"
   },
   {
     "pid": 88,
@@ -965,7 +1139,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Vastaya"
   },
   {
     "pid": 89,
@@ -976,7 +1152,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Ascended"
   },
   {
     "pid": 90,
@@ -987,7 +1165,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Undead"
   },
   {
     "pid": 91,
@@ -998,7 +1178,9 @@
     "releaseDate": "2018",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle,Support",
+    "species": "Vastaya"
   },
   {
     "pid": 92,
@@ -1009,7 +1191,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee,Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 93,
@@ -1020,7 +1204,9 @@
     "releaseDate": "2022",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 94,
@@ -1031,7 +1217,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Demon"
   },
   {
     "pid": 95,
@@ -1042,7 +1230,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Beast"
   },
   {
     "pid": 96,
@@ -1053,7 +1243,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Jungle",
+    "species": "Human"
   },
   {
     "pid": 97,
@@ -1064,7 +1256,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Construct"
   },
   {
     "pid": 98,
@@ -1075,7 +1269,9 @@
     "releaseDate": "2017",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Spirit"
   },
   {
     "pid": 99,
@@ -1086,7 +1282,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support,Top",
+    "species": "Celestial"
   },
   {
     "pid": 100,
@@ -1097,7 +1295,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle,Top",
+    "species": "Yordle"
   },
   {
     "pid": 101,
@@ -1108,7 +1308,9 @@
     "releaseDate": "2018",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Undead"
   },
   {
     "pid": 102,
@@ -1119,7 +1321,9 @@
     "releaseDate": "2019",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 103,
@@ -1130,7 +1334,9 @@
     "releaseDate": "2013",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 104,
@@ -1141,7 +1347,9 @@
     "releaseDate": "2017",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Vastaya"
   },
   {
     "pid": 105,
@@ -1152,7 +1360,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Beast"
   },
   {
     "pid": 106,
@@ -1163,7 +1373,9 @@
     "releaseDate": "2014",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Void"
   },
   {
     "pid": 107,
@@ -1174,7 +1386,9 @@
     "releaseDate": "2020",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Human"
   },
   {
     "pid": 108,
@@ -1185,7 +1399,9 @@
     "releaseDate": "2022",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Human"
   },
   {
     "pid": 109,
@@ -1196,7 +1412,9 @@
     "releaseDate": "2011",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Ascended"
   },
   {
     "pid": 110,
@@ -1207,7 +1425,9 @@
     "releaseDate": "2012",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Vastaya"
   },
   {
     "pid": 111,
@@ -1218,7 +1438,9 @@
     "releaseDate": "2011",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 112,
@@ -1229,7 +1451,9 @@
     "releaseDate": "2011",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Middle",
+    "species": "Yordle"
   },
   {
     "pid": 113,
@@ -1240,7 +1464,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 114,
@@ -1251,7 +1477,9 @@
     "releaseDate": "2020",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 115,
@@ -1262,7 +1490,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 116,
@@ -1273,7 +1503,9 @@
     "releaseDate": "2019",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support,Bottom",
+    "species": "Undead"
   },
   {
     "pid": 117,
@@ -1284,7 +1516,9 @@
     "releaseDate": "2020",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support,Middle",
+    "species": "Human"
   },
   {
     "pid": 118,
@@ -1295,7 +1529,9 @@
     "releaseDate": "2020",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top,Support",
+    "species": "Human"
   },
   {
     "pid": 119,
@@ -1306,7 +1542,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Support",
+    "species": "Demon"
   },
   {
     "pid": 120,
@@ -1317,7 +1555,9 @@
     "releaseDate": "2010",
     "abilityResource": "Energy",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 121,
@@ -1328,7 +1568,9 @@
     "releaseDate": "2011",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Beast"
   },
   {
     "pid": 122,
@@ -1339,7 +1581,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 123,
@@ -1350,7 +1594,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Undead"
   },
   {
     "pid": 124,
@@ -1361,7 +1607,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 125,
@@ -1372,7 +1620,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Beast"
   },
   {
     "pid": 126,
@@ -1383,7 +1633,9 @@
     "releaseDate": "2024",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Beast"
   },
   {
     "pid": 127,
@@ -1394,7 +1646,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Human"
   },
   {
     "pid": 128,
@@ -1405,7 +1659,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Celestial"
   },
   {
     "pid": 129,
@@ -1416,7 +1672,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Support",
+    "species": "Human"
   },
   {
     "pid": 130,
@@ -1427,7 +1685,9 @@
     "releaseDate": "2019",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 131,
@@ -1438,7 +1698,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 132,
@@ -1449,7 +1711,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support,Top",
+    "species": "Demon"
   },
   {
     "pid": 133,
@@ -1460,7 +1724,9 @@
     "releaseDate": "2016",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle,Middle",
+    "species": "Human"
   },
   {
     "pid": 134,
@@ -1471,7 +1737,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Jungle",
+    "species": "Human"
   },
   {
     "pid": 135,
@@ -1482,7 +1750,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Celestial"
   },
   {
     "pid": 136,
@@ -1493,7 +1763,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Yordle"
   },
   {
     "pid": 137,
@@ -1504,7 +1776,9 @@
     "releaseDate": "2013",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support",
+    "species": "Undead"
   },
   {
     "pid": 138,
@@ -1515,7 +1789,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Yordle"
   },
   {
     "pid": 139,
@@ -1526,7 +1802,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Beast"
   },
   {
     "pid": 140,
@@ -1537,7 +1815,9 @@
     "releaseDate": "2009",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 141,
@@ -1548,7 +1828,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 142,
@@ -1559,7 +1841,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom,Jungle",
+    "species": "Beast"
   },
   {
     "pid": 143,
@@ -1570,7 +1854,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 144,
@@ -1581,7 +1867,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 145,
@@ -1592,7 +1880,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Bottom",
+    "species": "Darkin"
   },
   {
     "pid": 146,
@@ -1603,7 +1893,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom,Top",
+    "species": "Human"
   },
   {
     "pid": 147,
@@ -1614,7 +1906,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Yordle"
   },
   {
     "pid": 148,
@@ -1625,7 +1919,9 @@
     "releaseDate": "2015",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Support",
+    "species": "Void"
   },
   {
     "pid": 149,
@@ -1636,7 +1932,9 @@
     "releaseDate": "2021",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Yordle"
   },
   {
     "pid": 150,
@@ -1647,7 +1945,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 151,
@@ -1658,7 +1958,9 @@
     "releaseDate": "2021",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Undead"
   },
   {
     "pid": 152,
@@ -1669,7 +1971,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 153,
@@ -1680,7 +1984,9 @@
     "releaseDate": "2010",
     "abilityResource": "Health",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 154,
@@ -1691,7 +1997,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Spirit"
   },
   {
     "pid": 155,
@@ -1702,7 +2010,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Beast"
   },
   {
     "pid": 156,
@@ -1713,7 +2023,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Vastaya"
   },
   {
     "pid": 157,
@@ -1724,7 +2036,9 @@
     "releaseDate": "2017",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Vastaya"
   },
   {
     "pid": 158,
@@ -1735,7 +2049,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Support",
+    "species": "Ascended"
   },
   {
     "pid": 159,
@@ -1746,7 +2062,9 @@
     "releaseDate": "2010",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle",
+    "species": "Human"
   },
   {
     "pid": 160,
@@ -1757,7 +2075,9 @@
     "releaseDate": "2013",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 161,
@@ -1768,7 +2088,9 @@
     "releaseDate": "2020",
     "abilityResource": "None",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Top",
+    "species": "Human"
   },
   {
     "pid": 162,
@@ -1779,7 +2101,9 @@
     "releaseDate": "2011",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Human"
   },
   {
     "pid": 163,
@@ -1790,7 +2114,9 @@
     "releaseDate": "2025",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 164,
@@ -1801,7 +2127,9 @@
     "releaseDate": "2019",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Beast"
   },
   {
     "pid": 165,
@@ -1812,7 +2140,9 @@
     "releaseDate": "2025",
     "abilityResource": "Mana",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Top",
+    "species": "Darkin"
   },
   {
     "pid": 166,
@@ -1823,7 +2153,9 @@
     "releaseDate": "2013",
     "abilityResource": "Health",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Jungle,Top",
+    "species": "Construct"
   },
   {
     "pid": 167,
@@ -1834,7 +2166,9 @@
     "releaseDate": "2012",
     "abilityResource": "Energy",
     "meleeRanged": "Melee",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle",
+    "species": "Human"
   },
   {
     "pid": 168,
@@ -1845,7 +2179,9 @@
     "releaseDate": "2022",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Bottom",
+    "species": "Human"
   },
   {
     "pid": 169,
@@ -1856,7 +2192,9 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Middle,Bottom",
+    "species": "Yordle"
   },
   {
     "pid": 170,
@@ -1867,7 +2205,9 @@
     "releaseDate": "2009",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Male"
+    "gender": "Male",
+    "position": "Support,Middle",
+    "species": "Human"
   },
   {
     "pid": 171,
@@ -1878,7 +2218,9 @@
     "releaseDate": "2017",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Middle",
+    "species": "Celestial"
   },
   {
     "pid": 172,
@@ -1889,6 +2231,8 @@
     "releaseDate": "2012",
     "abilityResource": "Mana",
     "meleeRanged": "Ranged",
-    "gender": "Female"
+    "gender": "Female",
+    "position": "Support",
+    "species": "Spirit"
   }
 ]

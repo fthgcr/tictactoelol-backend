@@ -15,7 +15,8 @@ import java.util.Random;
 /**
  * Generates "Guess Who" (LoLdle-style) puzzles: a secret champion the player
  * must find by guessing champion names; every guess reveals per-attribute
- * feedback (role, region, gender, resource, melee/ranged, release year...).
+ * feedback (role, region, gender, resource, melee/ranged, lane, species,
+ * skin count, release year...).
  *
  * Two modes, mirroring ConnectionsService:
  * - unlimited: a fresh random secret champion on every request
@@ -75,6 +76,9 @@ public class GuessWhoService {
                 champion.getReleaseDate(),
                 champion.getAbilityResource(),
                 champion.getMeleeRanged(),
-                champion.getGender());
+                champion.getGender(),
+                champion.getPosition(),
+                champion.getSpecies(),
+                champion.getSkinCount());
     }
 }

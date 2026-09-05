@@ -3,6 +3,7 @@ package com.tictactoegame.repositories;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tictactoegame.models.Champions;
+import com.tictactoegame.service.ChampionSkinDataService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
@@ -100,6 +101,41 @@ public class ChampionsRepository {
 
     public long count() {
         return champions.size();
+    }
+
+    /**
+     * Fills in the skin counts fetched from Data Dragon.
+     *
+     * The champion objects are shared (findAll returns the same instances the caches hand
+     * out), so writing the field here is what makes the new value visible everywhere at
+     * once - no cache eviction needed. Champions missing from the incoming map keep
+     * whatever they had, which on the very first run means null.
+     *
+     * @param countsByNormalizedName skin counts keyed by ChampionSkinDataService#normalizeName
+     * @return how many champions were matched
+     */
+    public int applySkinCounts(Map<String, Integer> countsByNormalizedName) {
+        if (countsByNormalizedName == null || countsByNormalizedName.isEmpty()) {
+            return 0;
+        }
+        int applied = 0;
+        for (Champions champion : champions) {
+            Integer skinCount = countsByNormalizedName.get(
+                    ChampionSkinDataService.normalizeName(champion.getName()));
+            if (skinCount != null) {
+                champion.setSkinCount(skinCount);
+                applied++;
+            }
+        }
+        return applied;
+    }
+
+    /** Champions Data Dragon did not account for; used for a diagnostic log line. */
+    public List<String> namesWithoutSkinCount() {
+        return champions.stream()
+                .filter(champion -> champion.getSkinCount() == null)
+                .map(Champions::getName)
+                .toList();
     }
 
     private static String normalize(String value) {

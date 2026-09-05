@@ -3,7 +3,7 @@ package com.tictactoegame.service;
 import com.tictactoegame.models.Champions;
 import com.tictactoegame.models.responses.ConnectionsGroup;
 import com.tictactoegame.models.responses.ConnectionsPuzzle;
-import com.tictactoegame.utils.Consts;
+import com.tictactoegame.utils.RuleCatalog;
 import com.tictactoegame.utils.Utils;
 import org.springframework.stereotype.Service;
 
@@ -38,12 +38,15 @@ public class ConnectionsService {
 
     private final ChampionsService championsService;
 
-    ConnectionsService(ChampionsService championsService) {
+    private final RuleCatalog ruleCatalog;
+
+    ConnectionsService(ChampionsService championsService, RuleCatalog ruleCatalog) {
         this.championsService = championsService;
+        this.ruleCatalog = ruleCatalog;
     }
 
     public ConnectionsPuzzle generateRandomPuzzle() {
-        return generatePuzzle(RANDOM, null);
+        return generatePuzzle(RANDOM, null, ruleCatalog.categories());
     }
 
     /**
@@ -54,17 +57,17 @@ public class ConnectionsService {
     public ConnectionsPuzzle generateDailyPuzzle() {
         LocalDate today = LocalDate.now(ZoneOffset.UTC);
         Random seededRandom = new Random(today.toEpochDay());
-        return generatePuzzle(seededRandom, today.toString());
+        return generatePuzzle(seededRandom, today.toString(), ruleCatalog.stableCategories());
     }
 
-    private ConnectionsPuzzle generatePuzzle(Random random, String puzzleId) {
+    private ConnectionsPuzzle generatePuzzle(Random random, String puzzleId, List<String[]> categories) {
         // Stable ordering is required for the daily puzzle to be deterministic;
         // the DB does not guarantee row order.
         List<Champions> allChampions = new ArrayList<>(championsService.getAllChampions());
         allChampions.sort(Comparator.comparingInt(Champions::getPid));
 
         for (int attempt = 0; attempt < MAX_GENERATION_ATTEMPTS; attempt++) {
-            ConnectionsPuzzle puzzle = tryGeneratePuzzle(allChampions, random, puzzleId);
+            ConnectionsPuzzle puzzle = tryGeneratePuzzle(allChampions, random, puzzleId, categories);
             if (puzzle != null) {
                 return puzzle;
             }
@@ -73,8 +76,9 @@ public class ConnectionsService {
                 "Could not generate a Connections puzzle after " + MAX_GENERATION_ATTEMPTS + " attempts");
     }
 
-    private ConnectionsPuzzle tryGeneratePuzzle(List<Champions> allChampions, Random random, String puzzleId) {
-        List<String> rules = pickRules(random);
+    private ConnectionsPuzzle tryGeneratePuzzle(List<Champions> allChampions, Random random, String puzzleId,
+            List<String[]> categories) {
+        List<String> rules = pickRules(random, categories);
 
         List<ConnectionsGroup> groups = new ArrayList<>(GROUP_COUNT);
         for (int groupIndex = 0; groupIndex < GROUP_COUNT; groupIndex++) {
@@ -89,8 +93,7 @@ public class ConnectionsService {
     }
 
     // One random rule from each of 4 distinct categories.
-    private List<String> pickRules(Random random) {
-        List<String[]> categories = new ArrayList<>(Consts.RULE_CATEGORIES);
+    private List<String> pickRules(Random random, List<String[]> categories) {
         Collections.shuffle(categories, random);
         List<String> rules = new ArrayList<>(GROUP_COUNT);
         for (int index = 0; index < GROUP_COUNT; index++) {
